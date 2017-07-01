@@ -129,3 +129,111 @@ MYAPP. flight = {
 		city : "los Angeles"
 	}
 }
+
+
+/*函数*/
+//1.函数对象：函数对象连接到Function.prototype(该原型对象本身连接到Object.prototype)
+
+//2.函数字面量
+var add = function (a, b){
+	return a + b;
+}
+	//闭包：一个内部函数除了可以访问自己的参数和变量，同时也能自由的访问把它嵌套在其中的父函数的参数和变量
+
+//3.方法调用模式
+	//当一个函数被保存为对象的一个属性时，我们称他为一个方法
+	//方法可以使用this来访问自己所属的对象；this到对象的绑定发生在调用时----公共方法
+var myObject = {
+	value: 0,
+	increment: function (inc) {
+		this.value += typeof inc === 'number' ? inc : 1;  
+	}
+};
+myObject.increment();
+console.log(myObject.value); //1
+myObject.increment(2);
+console.log(myObject.value); //3
+
+//4.函数调用模式
+var sum = add(3, 4); //以此模式调用函数时，this被绑定到全局对象
+	//定义一个变量that并给它赋值为this，那么内部函数就可以通过that访问到外部的this
+	//给myObject增加一个double方法
+myObject.double = function () {
+	var that = this;
+	var helper = function () {
+		that.value = add(that.value, that.value);
+	}
+	helper();  //以函数的形式调用helper
+}
+    //以方法的形式调用double
+myObject.double();
+document.write(myObject.value)  //6  
+
+//5.构造器调用模式
+	//JS是一门基于原型继承的语言，意味着对象可以直接从其他对象继承属性。该语言是无类型的
+    //如果在一个函数前面带上new来调用，那么背地里将会创建一个连接到该函数的prototype成员的新对象，同时this会被绑定到那个新对象上
+
+	//创建一个名为Quo的构造器函数，它构造一个带有status属性的对象
+var Quo = function (string) {
+	this.status = string
+}
+	//给Quo的所有实例提供一个名为get_status的公共方法
+Quo.prototype.get_status = function () {
+	return this.status;
+}
+	//构造一个Quo实例
+var myQuo = new Quo("confused");
+console.log(myQuo.get_status()); //confused
+
+	//？？？问：为什么访问不到Quo.status
+
+//6.Apply调用模式
+	//apply方法接收两个参数，第1个是要绑定给this的值，第2个就是一个参数数组
+var array = [3, 4];
+var sum = add.apply(null, array);
+console.log('sum = ' + sum);
+
+var statusObject = {
+	status: 'A-OK'
+}
+	//statusObject并没有继承自Quo.prototype,但我们可以在statusObject上调用get_status方法，
+	//尽管statusObject并没有一个名为get_status的方法。
+var status = Quo.prototype.get_status.apply(statusObject); //status值为'A-OK'
+
+//7.参数
+	//当函数被调用时，会得到一个参数---arguments数组, arguments是一个‘类似数组’对象。拥有一个length属性，没有其他数组的方法
+var sum = funciton () {
+	var sum = 0;
+	for (var i = 0; i < arguments.length; i++) {
+		sum += arguments[i];
+	}
+	return sum;
+}
+
+//8.返回
+	//一个函数总是会返回一个值，如果没有指定的返回值，则返回undefined
+	//如果函数调用时在前面加上了new前缀，且返回值不是一个对象，则返回this（该新对象）
+
+//9.异常
+var add = function (a, b) {
+	if (typeof a !=== 'number' || typeof b !=== 'number') {
+		throw {
+			name: 'TypeError',
+			message: 'add needs numbers'
+		};
+	}
+	return a + b;
+}
+
+	//构造一个try_it函数，以不正确的方式调用之前的add函数
+var try_it = function () {
+	try {
+		add("seven");
+	} catch (e) {
+		console.log(e.name + ":" + e.message);
+	}
+}
+try_it();
+    //一个try语句只会有一个捕获所有异常的catch代码块
+
+//10.扩充类型的功能

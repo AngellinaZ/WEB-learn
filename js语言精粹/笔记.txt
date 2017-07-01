@@ -19,3 +19,6 @@
 
 7.typeof运算符产生的值有'number','string','boolean','undefined','function'和’object'
   如果运算数是一个数组或null，那么结果是object。
+
+8.JS的简单数据类型包括：数字、字符串、布尔值、null、undefined。其他所有的值都是对象（可变的键控组合）
+  对象：属性的容器；属性拥有名字(包括空字符串在内的任意字符串)和值(除undefined值之外的任何值)
