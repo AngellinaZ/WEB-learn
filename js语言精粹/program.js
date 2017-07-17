@@ -1,10 +1,12 @@
 document.write('Hellon world!');
 
+/*语法*/
 Function.prototype.method = function (name, func) {
 	this.prototype[name] = func;
 	return this;
 }
 
+//如果throw语句在一个try代码块中，那么控制流会跳转到catch从句中。如果throw语句在函数中，则该函数调用被放弃，控制流跳转到该函数的try语句的catch从句中
 function myFunction() {
 	try {
 		var x = document.getElementById("demo").value;
@@ -12,7 +14,7 @@ function myFunction() {
 		if (isNaN(x)) throw '不是数字';
 		if (x > 10) throw 'too high';
 		if (x < 5) throw 'too low';
-	} catch(err) {
+	} catch(err) {  //接收抛出的异常对象
 		var y = document.getElementById("mess");
 		y.innerHTML = "Error" + err
 	}
