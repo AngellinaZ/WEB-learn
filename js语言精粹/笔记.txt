@@ -1,24 +1,31 @@
-1.Javascript�ڱ�������ʱ��Unicode��һ��16λ���ַ���������JS�ӵ������ַ�    ����16λ
+0.NaN是一个数值，它表示一个不能产生正常结果的运算结果。NaN不等于任何值，包括它自己，isNaN(number)检测NaN
+  Infinity 类似 正无穷大
 
-2.������������ȫ��ͬ���ַ����ַ�˳��Ҳ��ͬ���ַ�������Ϊ����ͬ���ַ�����
-  'c'+'a'+'t'=='cat' ��true
+1.Javascript在被创建的时候，Unicode是一个16位的字符集，所以JS钟的所有字符都是16位
 
-3.������䣨if �� switch��
-  ѭ����䣨while��for �� do��
-  ǿ����ת��䣨break��return �� throw��
+2.两个包含着完全相同的字符且字符顺序也相同的字符串被认为是相同的字符串，'c'+'a'+'t'=='cat' 是true
 
-  �����ֵ�������٣�false��null��undefined�����ַ���''������0������NAN
+3.条件语句（if 和 switch）
+  循环语句（while、for 和 do）
+  强制跳转语句（break、return 和 throw）
 
-4.for��variable in object�� block ��ÿ��ѭ���У�object����һ���������ַ�������ֵ��variable
+  下面的值被当作假：false、null、undefined、空字符串''、数字0、数字NAN
 
-5. return �� break
-  js��������return�ؼ��ֺͱ���ʽ֮�任��
-  js��������break�ؼ��ֺͱ�ǩ֮�任��
+4.for（variable in object） block 在每次循环中，object的下一个属性名字符串被赋值给variable,用object.hasOwnProperty(variable)来确定这个属性名是该   对象的成员，还是来自原型链。 
+  for (myvar in obj) {
+    if (obj.hasOwnProperty(myvar)) {
+      ...
+    } 
+  }
+
+5. return 和 break
+  js不允许在return关键字和表达式之间换行
+  js不允许在break关键字和标签之间换行
 
 6.delete
 
-7.typeof�����������ֵ��'number','string','boolean','undefined','function'�͡�object'
-  �����������һ�������null����ô�����object��
+7.typeof运算符产生的值有'number','string','boolean','undefined','function'和’object'
+  如果运算数是一个数组或null，那么结果是object。
 
-8.JS�ļ��������Ͱ��������֡��ַ���������ֵ��null��undefined���������е�ֵ���Ƕ��󣨿ɱ�ļ�����ϣ�
-  �������Ե�����������ӵ������(�������ַ������ڵ������ַ���)��ֵ(��undefinedֵ֮����κ�ֵ)
+8.JS的简单数据类型包括：数字、字符串、布尔值、null、undefined。其他所有的值都是对象（可变的键控组合）
+  对象：属性的容器；属性拥有名字(包括空字符串在内的任意字符串)和值(除undefined值之外的任何值)
