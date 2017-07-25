@@ -1,11 +1,11 @@
 document.write('Hellon world!');
 
 /*语法*/
+
 Function.prototype.method = function (name, func) {
 	this.prototype[name] = func;
 	return this;
 }
-
 //如果throw语句在一个try代码块中，那么控制流会跳转到catch从句中。如果throw语句在函数中，则该函数调用被放弃，控制流跳转到该函数的try语句的catch从句中
 function myFunction() {
 	try {
@@ -136,14 +136,16 @@ MYAPP. flight = {
 /*函数*/
 //1.函数对象：函数对象连接到Function.prototype(该原型对象本身连接到Object.prototype)
 
-//2.函数字面量
+//2.函数字面量 创建 函数对象
+//创建一个名为add的变量，并用来把两个数字相加的函数赋值给它
 var add = function (a, b){
 	return a + b;
 }
+	//函数字面量包括四个部分：1).保留字function  2).函数名，可省略，如上例子为匿名函数  3).圆括号内的参数  4).花括号内的主体部分
 	//闭包：一个内部函数除了可以访问自己的参数和变量，同时也能自由的访问把它嵌套在其中的父函数的参数和变量
 
 //3.方法调用模式
-	//当一个函数被保存为对象的一个属性时，我们称他为一个方法
+	//当一个函数被保存为对象的一个属性时，我们称他为一个方法  xxx.xx()
 	//方法可以使用this来访问自己所属的对象；this到对象的绑定发生在调用时----公共方法
 var myObject = {
 	value: 0,
@@ -157,7 +159,8 @@ myObject.increment(2);
 console.log(myObject.value); //3
 
 //4.函数调用模式
-var sum = add(3, 4); //以此模式调用函数时，this被绑定到全局对象
+	//当一个函数并非一个对象的属相时，被当做一个函数来调用
+var sum = add(3, 4); //以此模式调用函数时，this被绑定到全局对象--> 这是一个语言设计的错误
 	//定义一个变量that并给它赋值为this，那么内部函数就可以通过that访问到外部的this
 	//给myObject增加一个double方法
 myObject.double = function () {
