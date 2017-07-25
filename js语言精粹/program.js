@@ -159,7 +159,7 @@ myObject.increment(2);
 console.log(myObject.value); //3
 
 //4.函数调用模式
-	//当一个函数并非一个对象的属相时，被当做一个函数来调用
+//当一个函数并非一个对象的属相时，被当做一个函数来调用
 var sum = add(3, 4); //以此模式调用函数时，this被绑定到全局对象--> 这是一个语言设计的错误
 	//定义一个变量that并给它赋值为this，那么内部函数就可以通过that访问到外部的this
 	//给myObject增加一个double方法
@@ -175,9 +175,10 @@ myObject.double();
 document.write(myObject.value)  //6  
 
 //5.构造器调用模式
-	//JS是一门基于原型继承的语言，意味着对象可以直接从其他对象继承属性。该语言是无类型的
-    //如果在一个函数前面带上new来调用，那么背地里将会创建一个连接到该函数的prototype成员的新对象，同时this会被绑定到那个新对象上
-
+//JS是一门基于原型继承的语言，意味着对象可以直接从其他对象继承属性。该语言是无类型的
+//如果在一个函数前面带上new来调用，那么背地里将会创建一个 连接到该函数的prototype成员的 新对象，同时this会被绑定到那个新对象上
+//构造器函数：一个函数，创建的目的就是希望结合new前缀来调用    
+//this绑定：指向构造器函数的原型
 	//创建一个名为Quo的构造器函数，它构造一个带有status属性的对象
 var Quo = function (string) {
 	this.status = string
@@ -186,9 +187,9 @@ var Quo = function (string) {
 Quo.prototype.get_status = function () {
 	return this.status;
 }
-	//构造一个Quo实例
-var myQuo = new Quo("confused");
-console.log(myQuo.get_status()); //confused
+	//构造一个Quo实例 调用形式：在函数名前加 new 来调用,new方法返回的是构造器函数原型的引用
+var myQuo = new Quo("confused"); //myQuo连接到的是Quo的原型
+console.log(myQuo.get_status()); //confused  this.status即Quo.prototype.status在调用new构造Quo时即被赋予了confused。
 
 	//？？？问：为什么访问不到Quo.status
 
