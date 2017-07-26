@@ -220,20 +220,21 @@ var sum = funciton () {
 }
 
 //8.返回
+	//return语句可用来使函数提前返回。当return被执行时，函数立即返回而不再执行余下的语句
 	//一个函数总是会返回一个值，如果没有指定的返回值，则返回undefined
 	//如果函数调用时在前面加上了new前缀，且返回值不是一个对象，则返回this（该新对象）
 
 //9.异常
 var add = function (a, b) {
 	if (typeof a !=== 'number' || typeof b !=== 'number') {
-		throw {
+		throw {   
 			name: 'TypeError',
 			message: 'add needs numbers'
 		};
 	}
 	return a + b;
 }
-
+//throw语句会抛出一个exception对象，对象包含一个用来识别异常类型的name属性和一个描述性的message书香
 	//构造一个try_it函数，以不正确的方式调用之前的add函数
 var try_it = function () {
 	try {
@@ -246,3 +247,14 @@ try_it();
     //一个try语句只会有一个捕获所有异常的catch代码块
 
 //10.扩充类型的功能
+//通过给Function.prototype增加方法使得该方法对所有函数可用
+Function.prototype.method = function (name, func) {
+	this.prototype[name] = func;
+	return this;
+}
+
+Number.method('integer', function () {
+	return Math[this < 0 ? 'ceiling' : 'floor'](this);
+})
+(-10 / 3).integer();
+
