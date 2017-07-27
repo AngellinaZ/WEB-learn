@@ -247,14 +247,25 @@ try_it();
     //一个try语句只会有一个捕获所有异常的catch代码块
 
 //10.扩充类型的功能
-//通过给Function.prototype增加方法使得该方法对所有函数可用
+//通过给Function.prototype增加方法使得该方法对所有函数可用; 因为基本类型的原型是公用结构，在类库混用时务必小心, 加判断
 Function.prototype.method = function (name, func) {
-	this.prototype[name] = func;
-	return this;
+	if (!this.prototype[name]) {
+		this.prototype[name] = func;
+		return this;
+	}
 }
 
 Number.method('integer', function () {
 	return Math[this < 0 ? 'ceil' : 'floor'](this);
 })
-(-10 / 3).integer();
+(-10 / 3).integer();  //？？？为什么不能integer(-10 / 3)这样调用
+
+//移除字符串首尾空白
+String.method('trim', function () {
+	return this.replace(/^\s+|\s+$/g, '');
+})
+
+//10递归：一个递归函数调用自身去解决它的子问题
+
+
 
