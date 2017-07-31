@@ -1,25 +1,23 @@
 <html>
   <head>
   <meta charset="utf-8">
-    <script language="javascript">
+  <title>递归</title>
+  <script language="javascript">
       function Window_Load(){
-           
           //自定义属性depth为2的所有html控件对象
         var elements = getElementsByAttribute("depth","2");
         alert(elements[0].outerHTML);
-        //取得所有width为29的html控件对象
-        //var elements = getElementsByAttribute("width","29");  
       }
+      
       var walk_the_DOM = function walk(node, func) {
         //debugger;
         func(node);
         node = node.firstChild;
         console.log(node)
         while (node) {
-            console.log(node)
-          walk(node, func);
-          node = node.nextSibling;
-          //console.log(node)
+//循环中有循环 -- 当执行的walk()中的node = null时，不进入while循环，但第一次进入循环时还残留这一个node = node.nextSibling
+            walk(node, func);  
+            node = node.nextSibling;  
         }
       };
        
