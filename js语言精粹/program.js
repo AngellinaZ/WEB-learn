@@ -267,8 +267,78 @@ String.method('trim', function () {
 
 //10递归：一个递归函数调用自身去解决它的子问题---见例子
 
-//11作用域: 控制着变量与参数的可见性及生命周期--减少了名称的冲突，提供了自动内存管理
-//定义在函数中的参数和变量，函数外部不可见，内部任何地方可见
+//11闭包
+var myObject = (function () {
+	var value = 0;
+	return {
+		increment: function (inc) {
+			value += typeof inc === 'number' ? inc : 1;
+		},
+		getValue: function () {
+			return value;
+		}
+	};
+}());//()：匿名函数的调用；区别于(function xxx() {})()
 
+//创建一个quo的构造函数，它构造出带有get_status方法和status私有属性的一个对象
+var quo = function (status) {
+	return {
+		get_status: function () {
+			return status;
+		}
+	};
+};
+//构造一个quo实例
+var myQuo = quo("amazed");
+console.log(myQuo.get_status())
+
+// 渐变body的背景色（黄色到白色）
+var fade = function(node){
+    var level = 1;  //1.
+    var step = function(){ //3.
+        var hex = level.toString(16);
+        node.style.backgroundColor = '#FFFF' + hex + hex;
+        if(level < 15){
+            level += 1;
+            setTimeout(step, 500); // 如果level小于15，则内部函数自我调用
+        }
+    };
+    setTimeout(step, 1); // 2.调用内部函数 
+};
+fade(document.body);
+
+//糟糕的例子
+var add_the_handlers = function(nodes){
+    for(var i = 0; i < nodes.length; i++) {
+        nodes[i].onclick = function(e){ // 函数构造时的：i
+            alert(i);
+        };
+    }
+};
+var objs = document.getElementsByName("test");
+add_the_handlers(objs);
+// 造成上面的原因是：a标签的事件函数绑定了变量i，则不是函数在构造时的i值。
+// 解决方案如下：
+var add_the_handlers = function(nodes){
+    for(var i = 0; i < nodes.length; i++) {
+        nodes[i].onclick = function(i){
+            return function(e){
+                alert(i); // 输出的i是构造函数传递进来的i，不是事件处理绑定的i。
+            };
+        }(i);
+    }
+};
+//或者
+var add_the_handlers = function(nodes){
+    var helper = function (i) {
+		return function (e) {
+			alert(i);
+		};
+	};
+    for(var i = 0; i < nodes.length; i++) {
+        nodes[i].onclick = helper(i);
+    }
+};
+//----> 注意：避免在循环中创建函数, 我们可以在循环之外创建一个辅助函数, 让辅助函数在返回一个绑定了当前i值的函数, 防止混淆
 
 
