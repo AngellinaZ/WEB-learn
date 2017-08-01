@@ -309,15 +309,16 @@ fade(document.body);
 
 //糟糕的例子
 var add_the_handlers = function(nodes){
-    for(var i = 0; i < nodes.length; i++) {
-        nodes[i].onclick = function(e){ // 函数构造时的：i
+	var i; //变量i
+    for(i = 0; i < nodes.length; i++) {
+        nodes[i].onclick = function(e){ 
             alert(i);
         };
     }
 };
 var objs = document.getElementsByName("test");
 add_the_handlers(objs);
-// 造成上面的原因是：a标签的事件函数绑定了变量i，则不是函数在构造时的i值。
+// 造成上面的原因是：a标签的事件处理器函数绑定了变量i，则不是函数在构造时的i值。
 // 解决方案如下：
 var add_the_handlers = function(nodes){
     for(var i = 0; i < nodes.length; i++) {
