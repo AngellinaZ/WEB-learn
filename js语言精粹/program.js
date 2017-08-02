@@ -268,6 +268,7 @@ String.method('trim', function () {
 //10递归：一个递归函数调用自身去解决它的子问题---见例子
 
 //11闭包
+//通过调用一个函数的形式去初始化myObejct，该函数会返回一个对象字面量，
 var myObject = (function () {
 	var value = 0;
 	return {
@@ -278,7 +279,7 @@ var myObject = (function () {
 			return value;
 		}
 	};
-}());//()：匿名函数的调用；区别于(function xxx() {})()
+}());//()：函数的调用；区别于(function xxx() {})()
 
 //创建一个quo的构造函数，它构造出带有get_status方法和status私有属性的一个对象
 var quo = function (status) {
