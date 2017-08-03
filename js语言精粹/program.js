@@ -343,4 +343,47 @@ var add_the_handlers = function(nodes){
 };
 //----> 注意：避免在循环中创建函数, 我们可以在循环之外创建一个辅助函数, 让辅助函数在返回一个绑定了当前i值的函数, 防止混淆
 
+//12.记忆
+//例子：Fibonacci数列,前面相邻两项之和等于后一项的值
+var i = 0; //累计函数被调用的次数
+// var fibonacci = function (n) {
+//     i++; //被调用453次
+//     console.log(i);
+//     return n < 2 ? n : fibonacci(n - 2) + fibonacci(n - 1);
+// }
 
+//创建一个memo数组来存储结果， 存储结果隐藏在闭包中
+var fibonacci = function () {
+    var memo = [0, 1];
+    var fib = function (n) {
+	//i++; //被调用29次  
+	var result = memo[n];
+	if (typeof result !== 'number') { //当n = 2 时 result = undefined, 进入判断
+	    result = fib(n - 1) + fib(n - 2);
+	    memo[n] = result;
+	}
+	return result;
+    };
+    return fib;
+};
+var xxx = fibonacci(); //返回fib()
+for (var n = 0; n <= 10; n++) {
+    document.write(n + ":  " + xxx(n) + "</br>");
+}
+
+//---> 封装：带有记忆功能的函数 设计产生另一个函数的函数
+var memoizer = function (memo, formula) {
+	var recur = function (n) {
+		var result = memo[n];
+		if (typeof result !== 'number') {
+			result = formula(recur, n);
+			memo[n] = result;
+		}
+		return result;
+	};
+	return recur;
+} 
+//-->例子: 阶乘函数
+var factorial = memoizer([1, 1], function (recur, n) {
+	return n * recur(n - 1)
+})
