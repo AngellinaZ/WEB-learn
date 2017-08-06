@@ -387,3 +387,7 @@ var memoizer = function (memo, formula) {
 var factorial = memoizer([1, 1], function (recur, n) {
 	return n * recur(n - 1)
 })
+
+
+/*继承*/
+//1.伪类
