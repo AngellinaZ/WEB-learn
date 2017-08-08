@@ -390,4 +390,19 @@ var factorial = memoizer([1, 1], function (recur, n) {
 
 
 /*继承*/
-//1.伪类
+//1.基于 伪类 的继承
+
+//2.基于 原型 的继承：一个新对象可以继承一个旧对象的属性
+//用对象字面量构造一个对象
+var myMammal = {
+	name: 'Herb the Mammal',
+	get_name: function () {
+		return this.name;
+	},
+	says: function () {
+		return this.saying || '';
+	}
+}
+
+var myCat = Object.create(myMammal); //通过Object.createn方法构造实例
+
