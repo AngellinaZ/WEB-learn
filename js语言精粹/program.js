@@ -1,7 +1,6 @@
 document.write('Hellon world!');
 
 /*语法*/
-
 Function.prototype.method = function (name, func) {
 	this.prototype[name] = func;
 	return this;
@@ -22,7 +21,7 @@ function myFunction() {
 
 
 /*对象*/
-//对象字面量 
+//1.对象字面量 
 var empty_object = {};
 var stooge = {
 	"first-name" : "Jerome",
@@ -43,14 +42,14 @@ var flight = {
 	}
 }
 
-//检索
+//2.检索
 var middle = stooge['middle-name'] || "(none)";   // ‘||’用来填充默认值，例如在前者undefined的条件下 输出的则为引号内的(none)
 var status = flight.status || "unknown";
 console.log(flight.equipment);   //undefined
 //console.log(flight.equipment.model);  //throw "TypeError"  尝试从undefined的成员属性中取值将会导致异常
 console.log(flight.equipment && flight.equipment.model);  //undefined   避免上述错误的方法 ‘&&’
 
-//更新
+//3.更新
 stooge['first-name'] = 'Jerome';
 stooge['middle-name'] = 'Lester';
 stooge.nickname ="Curly";
@@ -59,13 +58,13 @@ flight.equipment = {
 };
 flight.status = 'overdue';
 
-//引用
+//4.引用
 var a = {}, b = {}, c = {}; //引用不同的空对象
 a = b = c = {};//引用同一个空对象
 
-//原型
-/*所有通过对象字面量创建的对象都连接到Object.prototype，它是JS中的标配对象*/
-if(typeof Object.beget !== 'function') {
+//5.原型
+/*每个对象都连接到一个原型对象, 并且可以从中继承属性. 所有通过对象字面量创建的对象都连接到Object.prototype，它是JS中的标配对象*/
+if (typeof Object.beget !== 'function') {
 	Object.create = function (o) {
 		var F = function () {};
 		F.prototype = o;
@@ -80,20 +79,20 @@ another_stooge.nickname = 'Moe';
 stooge.profession = 'actor';
 another_stooge.profession; // 'actor'
 
-//反射
+//6.反射
 /*检查对象并确定对象有什么属性，使用typeof检查对象的原型链; 
   hasOwnProperty(),如果对象拥有独有的属性，返回true，该方法不会检查原型链
 */
 
-//枚举
-//1.不推荐使用for in
+//7.枚举
+//1).不推荐使用for in
 var name;
 for(name in another_stooge) {
 	if(typeof another_stooge[name] !== 'function') {
 		document.write("<br/>" + name + ': ' + another_stooge[name])
 	}
 }
-//2.推荐使用：创建一个数组，然后使用for
+//2).推荐使用：创建一个数组，然后使用for
 var i;
 var properties = [
 	'first-name',
@@ -105,12 +104,12 @@ for(i = 0; i < properties.length; i ++) {
 	document.write("<br/>" + properties[i] + ': ' + another_stooge[properties[i]])
 }
 
-//删除 delete 可以用来删除对象的属性。如果对象包含该属性，那么移除，它不会触及原型链中的任何对象。
+//8.删除 delete 可以用来删除对象的属性。如果对象包含该属性，那么移除，它不会触及原型链中的任何对象。
 another_stooge.nickname //"Moe"
 delete another_stooge.nickname;
 another_stooge.nickname //"Curly"
 
-//减少全局变量污染
+//9.减少全局变量污染
 /*只创建一个唯一的全局变量*/
 var MYAPP = {};
 MYAPP. stooge = {
@@ -134,7 +133,9 @@ MYAPP. flight = {
 
 
 /*函数*/
-//1.函数对象：函数对象连接到Function.prototype(该原型对象本身连接到Object.prototype)
+//1.函数对象
+//JS中的函数就是对象.
+//对象字面量 产生的对象连接到 Object.prototype; 函数对象 连接到 Function.prototype(该原型对象本身连接到Object.prototype);
 
 //2.函数字面量 创建 函数对象
 //创建一个名为add的变量，并用来把两个数字相加的函数赋值给它
@@ -394,15 +395,17 @@ var factorial = memoizer([1, 1], function (recur, n) {
 
 //2.基于 原型 的继承：一个新对象可以继承一个旧对象的属性
 //用对象字面量构造一个对象
-var myMammal = {
-	name: 'Herb the Mammal',
-	get_name: function () {
-		return this.name;
-	},
-	says: function () {
-		return this.saying || '';
-	}
-}
-
-var myCat = Object.create(myMammal); //通过Object.createn方法构造实例
+var Person = {
+    name: 'john',
+    sayName: function(){
+        alert(this.name);
+    },
+    sayHello: function(){
+        alert('Hello');
+    }
+};
+//有了想要的对象后，就可以利用Object.create方法来构造出更多的实例：
+var nPerson = Object.create(Person);
+nPerson.sayName(); // john
+//这是一种差异化继承。通过定制一个新的对象，我们指明它与所基于的基本对象的区别。
 
