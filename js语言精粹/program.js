@@ -409,3 +409,16 @@ var nPerson = Object.create(Person);
 nPerson.sayName(); // john
 //这是一种差异化继承。通过定制一个新的对象，我们指明它与所基于的基本对象的区别。
 
+/*继承*/
+Array.method('reduce', function(f, value) {
+	for (var i = 0; i < this.length; i++) {
+		value = f(this[i], value);    //？？？？？？thi指向的是什么
+	}
+	return value;
+});
+
+var data = [1,2,3,4,7];
+var add = function (a, b) {
+	return a + b;
+}
+data.reduce(add, 0);
