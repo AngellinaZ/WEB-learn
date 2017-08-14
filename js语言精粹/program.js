@@ -58,12 +58,13 @@ flight.equipment = {
 };
 flight.status = 'overdue';
 
-//4.引用
+//4.引用： 对象通过引用来传递。它们永远不会被复制。
 var a = {}, b = {}, c = {}; //引用不同的空对象
 a = b = c = {};//引用同一个空对象
 
 //5.原型
-/*每个对象都连接到一个原型对象, 并且可以从中继承属性. 所有通过对象字面量创建的对象都连接到Object.prototype，它是JS中的标配对象*/
+/*每个对象都连接到一个原型对象, 并且可以从中继承属性. 所有通过 对象字面量 创建的对象都连接到Object.prototype，它是JS中的标配对象*/
+//创建一个使用原对象作为其原型的新对象
 if (typeof Object.beget !== 'function') {
 	Object.create = function (o) {
 		var F = function () {};
@@ -143,7 +144,6 @@ var add = function (a, b){
 	return a + b;
 }
 	//函数字面量包括四个部分：1).保留字function  2).函数名，可省略，如上例子为匿名函数  3).圆括号内的参数  4).花括号内的主体部分
-	//闭包：一个内部函数除了可以访问自己的参数和变量，同时也能自由的访问把它嵌套在其中的父函数的参数和变量
 
 //3.方法调用模式
 	//当一个函数被保存为对象的一个属性时，我们称他为一个方法  xxx.xx()
@@ -160,11 +160,11 @@ myObject.increment(2);
 console.log(myObject.value); //3
 
 //4.函数调用模式
-//当一个函数并非一个对象的属相时，被当做一个函数来调用
-var sum = add(3, 4); //以此模式调用函数时，this被绑定到全局对象--> 这是一个语言设计的错误
+	//当一个函数并非一个对象的属相时，被当做一个函数来调用
+	//this绑定：全局对象--> 这是一个语言设计的错误
 	//定义一个变量that并给它赋值为this，那么内部函数就可以通过that访问到外部的this
-	//给myObject增加一个double方法
-myObject.double = function () {
+
+myObject.double = function () {  //给myObject增加一个double方法
 	var that = this;
 	var helper = function () {
 		that.value = add(that.value, that.value);
@@ -175,26 +175,24 @@ myObject.double(); //以方法的形式调用double
 document.write(myObject.value)  //6  
 
 //5.构造器调用模式
-//JS是一门基于  原型继承 的语言，意味着对象可以直接从其他对象继承属性。该语言是无类型的
-//构造器函数：一个函数，创建的目的就是希望结合new前缀来调用    
-//new 函数(): 背地里将会创建一个 连接到该函数的prototype成员的 新对象，同时this会被绑定到那个新对象上
-//this绑定：指向构造器函数的原型
-	//创建一个名为Quo的构造器函数，它构造一个带有status属性的对象
-var Quo = function (string) {
+	//构造器函数：一个函数，创建的目的就是希望结合new前缀来调用    
+	//new 函数(): 背地里将会创建一个 连接到该函数的prototype成员的 新对象，同时this会被绑定到那个新对象上
+	//this绑定：指向新对象
+	
+var Quo = function (string) {  //创建一个名为Quo的构造器函数，构造一个带有status属性的对象
 	this.status = string
 }
-	//给Quo的所有实例提供一个名为get_status的公共方法
-Quo.prototype.get_status = function () {
+Quo.prototype.get_status = function () { 
 	return this.status;
 }
 	//构造一个Quo实例 调用形式：在函数名前加 new 来调用,new方法返回的是构造器函数原型的引用
-var myQuo = new Quo("confused"); //myQuo连接到的是Quo的原型
+var myQuo = new Quo("confused"); 
 console.log(myQuo.get_status()); //confused  this.status即Quo.prototype.status在调用new构造Quo时即被赋予了confused。
 console.log(myQuo.status); //confused 
-typeof Quo; //function 
-typeof MyQuo; //Object
+typeof Quo; //function 构造器函数
+typeof MyQuo; //Object 对象
 
-	//？？？问：为什么访问不到Quo.status 
+	//？？？问：为什么访问不到Quo.status ---- 因为Quo是函数
 
 //6.Apply调用模式
 	//apply方法接收两个参数，第1个是要绑定给this的值，第2个就是一个参数数组
@@ -208,11 +206,9 @@ var statusObject = {
 var status = Quo.prototype.get_status.apply(statusObject); //status值为'A-OK'
 
 //7.参数
-//当函数被调用时，会得到一个参数---arguments数组, arguments是一个‘类似数组’对象。拥有一个length属性，没有其他数组的方法
-//函数可以通过此arguments访问所有它被调用时 递给它的参数列表，包括没有被分配给函数声明时定义的形式参数的多余参数
-	//注意该函数内部定义的变量sum不会与函数外部定义的sum产生冲突
-	//该函数只会看到内部的那个变量
-var sum = funciton () {
+	//当函数被调用时，会得到一个参数---arguments数组, arguments是一个‘类似数组’对象。拥有一个length属性，没有其他数组的方法
+	//函数可以通过此arguments访问所有它被调用时 递给它的参数列表，包括没有被分配给函数声明时定义的形式参数的多余参数
+var sum = funciton () { 
 	var sum = 0;
 	for (var i = 0; i < arguments.length; i++) {
 		sum += arguments[i];
