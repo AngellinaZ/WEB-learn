@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var o = {
+			a: 10,
+			b: {
+				fn: function () {
+					console.log(this)	
+					console.log(this.a)	 //undefined
+				}
+			}
+		}
+		o.b.fn(); //undefined 这时候方法fn所在的对象是b ，b内不存在a变量
+
+		var o = {
+			a: 10,
+			b: {
+				a: 12,
+				fn: function () {
+					console.log(this.a)	 //undefined
+					console.log(this)	 
+				}
+			}
+		}
+		o.b.fn(); //12, Object 这样子是调用方法，方法中的this指向所在的对象
+		var j = o.b.fn;
+		j(); //undefind , window 因为此时的j是个函数，函数的this指向全局，全局下并没有a
+	</script>
+</body>
+</html>
