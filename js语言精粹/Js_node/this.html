@@ -4,31 +4,54 @@
 	<title></title>
 </head>
 <body>
+	<p>4种模式下，参数this的差异</p>
+	<div>
+		<ul>
+			<li>
+				<h3>方法调用模式</h3>
+				<p>当一个函数被保存为obj的一个属性时, 称之为方法。</p>
+				<p>当一个方法被调用时, this被绑定到该对象 </p>
+				<p>方法可以使用this访问自己所属的对象, 它能从对象中取值或对对象进行修改</p>
+			</li>
+			<li>
+				<h3>函数调用模式</h3>
+				<p>当一个函数并非一个对象的属性时, 称之为函数。</p>
+				<p>this: 全局对象（window）</p>
+				<p>方法不能通过内部函数来共同访问对象：通过在外部定义var that = this, 解决内部函数的this的指向</p>
+			</li>
+		</ul>
+	</div>
+
 	<script type="text/javascript">
 		var o = {
 			a: 10,
 			b: {
 				fn: function () {
-					console.log(this)	
-					console.log(this.a)	 //undefined
+					console.log(this);
+					console.log(this.a);	 
 				}
 			}
 		}
-		o.b.fn(); //undefined 这时候方法fn所在的对象是b ，b内不存在a变量
+		o.b.fn();   // 对象b, undefined ---方法fn所在的对象是b, b内不存在a变量
+		o.b.a = 12; // 给对象b添加属性a, 值为12
+		o.b.fn();   // 对象b, 12 ---方法fn所在的对象是b, b内存在a变量, a: 12
+		var j = o.b.fn; //函数
+		j();        // window, undefind ---函数调用模式, 函数的this指向全局，全局下并没有a
 
-		var o = {
-			a: 10,
-			b: {
-				a: 12,
-				fn: function () {
-					console.log(this.a)	 //undefined
-					console.log(this)	 
-				}
-			}
+
+		//给o增加double方法
+		o.double = function () {
+			var that = this; 
+
+			var helper = function () {
+				that.a = that.a + 4;
+			};
+
+			helper(); //函数的形式调用
 		}
-		o.b.fn(); //12, Object 这样子是调用方法，方法中的this指向所在的对象
-		var j = o.b.fn;
-		j(); //undefind , window 因为此时的j是个函数，函数的this指向全局，全局下并没有a
+		o.double();
+		console.log(o.a); //14
+		
 	</script>
 </body>
 </html>
