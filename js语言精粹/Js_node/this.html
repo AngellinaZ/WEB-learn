@@ -19,6 +19,15 @@
 				<p>this: 全局对象（window）</p>
 				<p>方法不能通过内部函数来共同访问对象：通过在外部定义var that = this, 解决内部函数的this的指向</p>
 			</li>
+			<li>
+				<h3>构造器调用模式</h3>
+				<p>JS是一门基于原型继承的语言, 对象可以直接从其他对象继承属性</p>
+				<p>new xxx() ==> 创建一个连接到该函数的prototype成员的新对象，同时this绑定到新对象上</p>
+			</li>
+			<li>
+				<h3>Apply调用模式</h3>
+				<p>允许选择this值, apply(绑定给this的值, 一个参数数组)</p>
+			</li>
 		</ul>
 	</div>
 
@@ -52,6 +61,20 @@
 		o.double();
 		console.log(o.a); //14
 		
+
+		function a() {
+			this.abc = 'abc';
+		}
+		var test = new a(); 
+		/*	=> new a(): 开辟内存空间(object类型), 构造器中的this被绑定在此空间上
+			{
+				constructor: a 本身,
+				__proto__: a.prototype (默认为Object.prototype),
+				abc: 'abc'
+			}
+		==> 返回一个引用值并赋值给test
+		*/
+		console.log(test.abc); //abc
 	</script>
 </body>
 </html>
