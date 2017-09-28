@@ -42,8 +42,19 @@
 		            	console.log(this)
 		                console.log(i); 
 		            };
-		        }(i); // 自执行
+		        }(i); // 自执行，并传入参数i
 		    }
+/*
+			 for(var i = 0; i < nodes.length; i++) { 
+		        nodes[i].onclick = function(i){
+		        	console.log(i)  //i: 事件函数的入参，event对象，和外面的i不属于同一个作用域
+		            return function(e){  
+		            	console.log(this)
+		                console.log(i); 
+		            };
+		        };
+		    }
+*/	
 		};
 
 		var objs = document.getElementsByName("test");
