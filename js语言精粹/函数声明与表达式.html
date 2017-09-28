@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>函数声明</title>
+</head>
+<body>
+    <ul>
+        <li>
+            <h3>函数声明与表达式</h3>
+            <p>可用于：把匿名函数作为回调函数传递到异步函数中</p>
+        </li>
+        <li>
+            <h3>函数声明</h3>
+            <p>function foo() {}</p>
+            <p>函数会在执行前被解析,同一作用域内,不管函数声明在哪里定义，该函数都可以进行调用</p>
+        </li>
+        <li>
+            <h3>函数赋值表达式</h3>
+            <P>foo = function() {};</P>
+            <p>把一个匿名的函数赋值给变量 foo, 声明提前, 赋值语句只在运行时执行</p>
+        </li>
+        <li>
+            <h3>命名函数的赋值表达式</h3>
+            <p>var foo = function bar() { bar(); // 正常运行}</p>
+            <p>bar(); // 出错：ReferenceError</p>
+            <p>bar 函数声明外是不可见的，这是因为我们已经把函数赋值给了 foo； 然而在 bar 内部依然可见。这是由于 JavaScript 的 命名处理 所致， 函数名在函数内总是可见的。</p>
+        </li>
+    </ul>
+    <script type="text/javascript">
+        
+
+    </script>
+</body>
+</html>
