@@ -8,19 +8,23 @@
 	<div>
 		<ul>
 			<li>
-				<h3>方法调用模式</h3>
-				<p>当一个函数被保存为obj的一个属性时, 称之为方法。</p>
-				<p>当一个方法被调用时, this被绑定到该对象 </p>
-				<p>方法可以使用this访问自己所属的对象, 它能从对象中取值或对对象进行修改</p>
+				<h3>全局范围内, this</h3>
+				<p>指向全局对象</p>
 			</li>
 			<li>
-				<h3>函数调用模式</h3>
+				<h3>函数调用模式, foo()</h3>
+				<p>this: 全局对象</p>
 				<p>当一个函数并非一个对象的属性时, 称之为函数。</p>
-				<p>this: 全局对象（window）</p>
 				<p>方法不能通过内部函数来共同访问对象：通过在外部定义var that = this, 解决内部函数的this的指向</p>
 			</li>
 			<li>
-				<h3>构造器调用模式</h3>
+				<h3>方法调用模式, test.foo()</h3>
+				<p>当一个方法被调用时, this被绑定到该对象test </p>
+				<p>当一个函数被保存为obj的一个属性时, 称之为方法。</p>
+				<p>方法可以使用this访问自己所属的对象, 它能从对象中取值或对对象进行修改</p>
+			</li>
+			<li>
+				<h3>构造器调用模式, var test = new foo();</h3>
 				<p>JS是一门基于原型继承的语言, 对象可以直接从其他对象继承属性</p>
 				<p>new xxx() ==> 创建一个连接到该函数的prototype成员的新对象，同时this绑定到新对象上</p>
 			</li>
@@ -61,12 +65,13 @@
 		o.double();
 		console.log(o.a); //14
 		
-
+		
+	        //构造函数调用模式
 		function a() {
 			this.abc = 'abc';
 		}
 		var test = new a(); 
-		/*	=> new a(): 开辟内存空间(object类型), 构造器中的this被绑定在此空间上
+		/*	=> new a(): 开辟内存空间(object类型), 构造器中的this被绑定在此空间上(新创建的对象)
 			{
 				constructor: a 本身,
 				__proto__: a.prototype (默认为Object.prototype),
