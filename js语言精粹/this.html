@@ -31,6 +31,8 @@
 			<li>
 				<h3>Apply调用模式</h3>
 				<p>允许选择this值, apply(绑定给this的值, 一个参数数组)</p>
+				<p>当使用 Function.prototype 上的 call 或者 apply 方法时，函数内的 this 将会被 显式设置为函数调用的第一个参数。</p>
+				<p>因此函数调用的规则在上例中已经不适用了，在foo 函数内 this 被设置成了 bar</p>	
 			</li>
 		</ul>
 	</div>
@@ -80,6 +82,12 @@
 		==> 返回一个引用值并赋值给test
 		*/
 		console.log(test.abc); //abc
+		
+		//apply调用模式 
+		function foo(a, b, c) {}
+		var bar = {};
+		foo.apply(bar, [1, 2, 3]); // 数组将会被扩展，如下所示
+		foo.call(bar, 1, 2, 3); // 传递到foo的参数是：a = 1, b = 2, c = 3
 	</script>
 </body>
 </html>
