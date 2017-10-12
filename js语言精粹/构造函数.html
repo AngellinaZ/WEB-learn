@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>构造函数</title>
+</head>
+<body>
+	<div>
+		
+	</div>
+
+	<script type="text/javascript">
+	    //构造函数调用模式
+		function a() {
+			this.abc = 'abc';
+		}
+		var test = new a(); 
+		/*	=> new a(): 开辟内存空间(object类型), 构造器中的this被绑定在此空间上(新创建的对象)
+			{
+				constructor: a 本身,
+				__proto__: a.prototype (默认为Object.prototype),
+				abc: 'abc'
+			}
+		==> 返回一个引用值并赋值给test
+		*/
+		console.log(test.abc); //abc
+	</script>
+</body>
+</html>
