@@ -4,3 +4,8 @@
 2."vue的form提交"
     通过定义formDate对象提交
     
+3."如何在子组件中正确的传递Boolean值，Number值"
+   <comp some-prop="1"></comp>  因为这是一个字面量prop，传递的值就是字符串‘1’
+   <comp :some-prop="1"></comp> 被当做JavaScript表达式计算，传递的值是数值1
+    
+   
