@@ -1,4 +1,5 @@
 eval(): 把字符串转换为可以执行的js语句
+var arr = Object.keys(obj): 将对象转换为数组
 
 
 1.对象 -- JS中所有变量都可以当作对象使用，除了null,undefined
