@@ -3,7 +3,7 @@
 ## Outline / 目录
 
 * [JavaScript](#javascript) - JavaScript 相关的知识汇总，包括读书笔记，不常用到的js；
-* [Node.js](#node.js) - node.js 相关学习笔记
+* [node.js](#node.js) - node.js 相关学习笔记
 * [前端框架](#frame) - vue.js
 
 ---
