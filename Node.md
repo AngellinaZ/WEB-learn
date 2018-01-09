@@ -10,8 +10,8 @@
   
 #### 1.基本过程：
 
-  1.用require载入http模块<br>
-  2.创建服务器： 调用 http 模块提供的函数：createServer。函数返回一个对象，对象有一个listen方法，传入数值参数，指定这个 HTTP 服务器监听的端口号。
+  (1).用require载入http模块<br>
+  (2).调用服务器：用 http 模块提供的函数：createServer。函数返回一个对象，对象有一个listen方法，传入数值参数，指定这个 HTTP 服务器监听的端口号。
 
 
 #### 2.REPL(Read Eval Print Loop)--交互式解释器
