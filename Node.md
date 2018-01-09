@@ -10,8 +10,8 @@
   
 #### 基本过程：
 
-  (1).引用require载入http模块<br>
-  (2).调用服务器：用 http 模块提供的函数：createServer。函数返回一个对象，对象有一个listen方法，传入数值参数，指定这个 HTTP 服务器监听的端口号。
+ * 引用require载入http模块<br>
+ * 调用服务器：用 http 模块提供的函数：createServer。函数返回一个对象，对象有一个listen方法，传入数值参数，指定这个 HTTP 服务器监听的端口号。
 
 
 #### REPL
