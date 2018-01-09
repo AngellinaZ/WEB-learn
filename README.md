@@ -11,7 +11,7 @@
 
 ## JavaScript
 * [JS补充知识点](./JavaScript.md)
-* [JS语言精粹](./JS语言精粹/YYJC.md)
+* [JS语言精粹](./js语言精粹/YYJC.md)
 
 
 ## node.js
