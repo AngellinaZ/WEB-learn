@@ -46,6 +46,10 @@
  * substring(start,stop) 提取字符 不接受负数
 
 
+### 6. this
+ * 
+ * call 和 apply 都动态改变this而出现的
+
 ### 99.其他
 
  1. 各浏览器之间的兼容性问题<br>
