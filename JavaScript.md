@@ -46,9 +46,10 @@
  * substring(start,stop) 提取字符 不接受负数
 
 
-### 6. this
- * 
- * call 和 apply 都动态改变this而出现的
+### 6. call 和 apply 
+ * 能动态改变this指向, thisObj: this指向, obj: 要调用的对象或者方法
+ * call： obj.call(thisObj, arg1, arg2...);
+ * aply:  obj.apply(thisObj, [arr1, arr2...]);
 
 ### 99.其他
 
