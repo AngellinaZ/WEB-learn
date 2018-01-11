@@ -46,4 +46,37 @@
   });
  ```
  
- #### Node.js EventEmitter -- 1.9
+ #### Node.js EventEmitter -- 1.11 (http://www.runoob.com/nodejs/nodejs-event.html)
+  * events 模块只提供了一个对象： events.EventEmitter。
+  * EventEmitter 的核心就是事件触发与事件监听器功能的封装。
+  * EventEmitter的事件组成('事件名', callback/监听事件)
+ ```
+   var events = require('events');
+   var eventEmitter = new events.EventEmitter();
+
+   //监听器1
+   var listener1 = function listener1() {
+     console.log('监听器 listener1 执行。');
+  }
+
+   //绑定 connection 事件，处理函数为 listener1/回调函数
+   eventEmitter.on('connection', listener1);
+   eventEmitter.addListener('connection', function() {
+      console.log('监听器2')
+   })
+
+   //删除监听器listener1
+   eventEmitter.removeListener('connection', listener1)
+
+   //触发事件
+   eventEmitter.emit('connection');
+
+   //返回指定事件的监听器数量。
+   eventListeners = require('events').EventEmitter.listenerCount(eventEmitter,'connection');
+ ```
+ * error 事件: 为会触发 error 事件的对象设置监听器，避免遇到错误后整个程序崩溃
+ ```
+  var events = require('events'); 
+  var emitter = new events.EventEmitter(); 
+  emitter.emit('error');
+```
