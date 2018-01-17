@@ -84,9 +84,11 @@
 #### Node.js Buffer(缓冲区) -- 1.17
  
  * 定义一个Buffer类，创建一个用于存放二进制数据的缓存区
+ 
  * 创建Buffer类
-  * Buffer.alloc()
-  * Buffer.from()
+  * Buffer.alloc()
+  * Buffer.from()
+  
  * 写入缓存区： buf.write(string[, offset[, length]][, encoding])
   * 返回值： 返回实际写入的大小。如果 buffer 空间不足， 则只会写入部分字符串。
    ```
@@ -94,6 +96,7 @@
     len = buf.write("www.runoob.com");
     console.log("写入字节数 : "+  len);
    ```
+   
  * 从缓冲区读取数据： buf.toString([encoding[, start[, end]]])， 默认为 'utf8' 。
   * 返回值： 解码缓冲区数据并使用指定的编码返回字符串。
    ```
@@ -104,17 +107,21 @@
     console.log( buf.toString(undefined,0,5)); // 使用 'utf8' 编码, 并输出: abcde
     console.log( buf.toString('ascii'));       // 输出: abcdefghijklmnopqrstuvwxyz
   ```
+  
  * 将 Buffer 转换为 JSON 对象: buf.toJSON()
   ```
     var buf = Buffer.from('www.runoob.com');
     var json = buf.toJSON(buf);
     //返回 { type: 'Buffer',data: [ 119, 119, 119, 46, 114, 117, 110, 111, 111, 98, 46, 99, 111, 109 ] }
   ```
+  
  * 缓冲区合并： buf.concat(list[, totalLength])
   * list - 用于合并的 Buffer 对象数组列表。
   * totalLength - 指定合并后Buffer对象的总长度。
+  
  * 缓冲区比较： buf.compare(otherBuffer);
   * 返回值： 返回一个数字，表示 buf 在 otherBuffer 之前(<0)，之后(>0)或相同(=== 0)。
+  
  * 拷贝缓冲区: buf.copy(targetBuffer[, targetStart[, sourceStart[, sourceEnd]]])
   ```
   var buf1 = Buffer.from('abcdefghijkl');
@@ -125,6 +132,8 @@
   
   console.log(buf1.toString()); //abRUNOOBijkl
   ```
+  
  * 缓冲区裁剪: buf.slice([start[, end]])
   * 返回值： 返回一个新的缓冲区，它和旧缓冲区指向同一块内存，但是从索引 start 到 end 的位置剪切。
+  
  * 缓冲区长度： buf.length
