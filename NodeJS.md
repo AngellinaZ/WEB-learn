@@ -137,3 +137,75 @@
     * 返回值： 返回一个新的缓冲区，它和旧缓冲区指向同一块内存，但是从索引 start 到 end 的位置剪切。
   
  * 缓冲区长度： buf.length
+ 
+ 
+ #### Stream (流)
+ 
+  * Stream 是一个抽象接口
+  * 所有的 Stream 对象都是 EventEmitter 的实例, 常用事件
+      * data -- 当有数据可读时触发
+      * end -- 没有更多数据可读时触发
+      * error -- 在接收和写入过程中发生错误时触发
+      * finish -- 所有数据已被写入到底层系统时触发
+```
+var fs = require('fs');
+var data = 'I am zyp';
+
+/*从流中读取数据*/
+//1.创建可读流
+var readStream = fs.createReadStream('input.txt');
+
+//2.设置编码为UTF-8
+readStream.setEncoding('UTF8')
+
+//3.处理流事件（data, end, error）
+readStream.on('data', function (chunk) {
+	data += chunk;
+})
+readStream.on('end', function () {
+	console.log(data)
+}) 
+readStream.on('error', function (error) {
+	console.log(error.stack);
+})
+
+
+/*写入流： 清空原始数据*/
+//1.创建一个可以写入的流，写入到文件 output.txt 中
+var writeStream = fs.createWriteStream('output.txt');
+
+//2.使用 utf8 编码写入数据
+writeStream.write(data, 'UTF8');
+
+//3.标记文件末尾
+writeStream.end();
+
+//4.处理流事件 --> data, end, error
+writeStream.on('finish', function () {
+	console.log('写入完成')
+})
+writeStream.on('error', function (error) {
+	console.log(error.stack)
+})
+
+
+/*管道流：从一个流中获取数据并将数据传递到另一个流中*/
+// 管道读写操作
+// 读取 input.txt 文件内容，并将内容写入到 output.txt 文件中
+readStream.pipe(writeStream)
+
+
+/*链式流: 链式是通过连接输出流到另外一个流并创建多个流操作链的机制, 一般用于管道操作*/
+//用管道和链式来压缩和解压文件。
+var zlib = require('zlib');
+
+// 压缩 input.txt 文件为 input.txt.gz
+// fs.createReadStream('input.txt')
+// 	.pipe(zlib.createGzip())
+// 	.pipe(fs.createWriteStream('input.txt.gz'));	
+
+// 解压 input.txt.gz 文件为 input.txt
+fs.createReadStream('input.txt.gz')
+  .pipe(zlib.createGunzip())
+  .pipe(fs.createWriteStream('input1.txt'));
+  
