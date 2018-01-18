@@ -139,14 +139,14 @@
  * 缓冲区长度： buf.length
  
  
- #### Stream (流)
+ #### Stream (流) -- 1.18
  
-  * Stream 是一个抽象接口
-  * 所有的 Stream 对象都是 EventEmitter 的实例, 常用事件
-      * data -- 当有数据可读时触发
-      * end -- 没有更多数据可读时触发
-      * error -- 在接收和写入过程中发生错误时触发
-      * finish -- 所有数据已被写入到底层系统时触发
+ * Stream 是一个抽象接口
+ * 所有的 Stream 对象都是 EventEmitter 的实例, 常用事件
+ 		* data -- 当有数据可读时触发
+    * end -- 没有更多数据可读时触发
+    * error -- 在接收和写入过程中发生错误时触发
+    * finish -- 所有数据已被写入到底层系统时触发
 ```
 var fs = require('fs');
 var data = 'I am zyp';
