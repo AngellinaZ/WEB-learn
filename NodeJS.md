@@ -224,5 +224,6 @@ function hello(){}
 exports.hello = function () {}
 ```
  * Node.js 中存在 4 类模块（原生模块和3种文件模块）
- * 服务端的模块--加载优先级：
+ * 服务端的模块--加载优先级:
+ 
 ![node-http](https://github.com/AngellinaZ/WEB-learn/blob/master/images/nodejs-require.jpg)
