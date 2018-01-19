@@ -208,4 +208,20 @@ var zlib = require('zlib');
 fs.createReadStream('input.txt.gz')
   .pipe(zlib.createGunzip())
   .pipe(fs.createWriteStream('input1.txt'));
-  
+```
+  
+#### 模块系统
+ * 为了让Node.js的文件可以相互调用
+ * 一个node.js文件就是一个模块
+ * node.js提供两个对象
+   * exports: 模块公开的接口
+   * require: 用于从外部获取一个模块的接口，即所获取模块的 exports 对象
+```
+//把一个对象封装到模块中
+module.exports = hello; 
+function hello(){}
+
+exports.hello = function () {}
+```
+ * Node.js 中存在 4 类模块（原生模块和3种文件模块）
+ * 服务端的模块--加载优先级：
