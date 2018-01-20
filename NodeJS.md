@@ -211,6 +211,7 @@ fs.createReadStream('input.txt.gz')
 ```
   
 #### 模块系统
+
  * 为了让Node.js的文件可以相互调用
  * 一个node.js文件就是一个模块
  * node.js提供两个对象
@@ -227,3 +228,15 @@ exports.hello = function () {}
  * 服务端的模块--加载优先级:
  
 ![node-http](https://github.com/AngellinaZ/WEB-learn/blob/master/images/nodejs-require.jpg)
+
+
+#### 全局对象
+
+ * 全局对象：global, 全局变量： global对象的属性
+ * 注意： 永远使用 var 定义变量以避免引入全局变量，因为全局变量会污染 命名空间，提高代码的耦合风险。
+ * __filename: 表示当前正在执行的脚本的文件名, 返回文件所在的路径
+ * __dirname: 表示当前执行脚本所在的目录
+ * setTimeout(cb, ms)： 返回一个代表定时器的句柄值。
+ * clearTimeout(t)
+ * setInterval(cb, ms)
+ * clearInterval(t) 
