@@ -240,3 +240,29 @@ exports.hello = function () {}
  * clearTimeout(t)
  * setInterval(cb, ms)
  * clearInterval(t) 
+ * console 
+ * process: 全局变量
+ 
+ 
+#### 常用工具 -- 1.21
+
+ * util: node.js核心模块，提供常用函数的合集
+   * util.inherits(constructor, superConstructor)是一个实现对象间原型继承 的函数，只继承在 原型中定义 的函数，不继承构造函数内部创造的属性和函数
+   * util.inspect(object,[showHidden],[depth],[colors])是一个将任意对象转换 为字符串的方法，通常用于调试和错误输出
+   * util.isArray(object): 如果给定的参数 "object" 是一个数组返回true，否则返回false。
+   * util.isRegExp(object): 如果给定的参数 "object" 是一个正则表达式返回true，否则返回false。
+   * util.isDate(object)
+   * util.isError(object)
+```
+var util = require('util'); 
+```
+
+#### 文件系统 -- 1.21
+
+ * Node 导入文件系统模块(fs)语法
+```
+var fs = require("fs")
+```
+ * 异步:  方法函数最后一个参数为回调函数, 回调函数的第一个参数包含了错误信息(error). eg：fs.readFile()
+ * 同步:  eg: fs.readFileSync()。
+ * 打开文件：
