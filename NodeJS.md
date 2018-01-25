@@ -11,14 +11,30 @@
 #### http -- 超文本传输协议
 
  * 作用：定义了服务器和客户端在通信的时候应该如何发送和接收数据
- * 请求http模块并赋予一个变量，便于在以后的脚本使用
- * 调用服务器：用 http 模块提供的函数：createServer。函数返回一个对象，对象有一个listen方法，传入数值参数，指定这个 HTTP 服务器监听的端口号。
+ * http服务器：
+   * 请求http模块并赋予一个变量，便于在以后的脚本使用
+   * 调用服务器：用 http 模块提供的函数：createServer。函数返回一个对象，对象有一个listen方法，传入数值参数，指定这个 HTTP 服务器监听的端口号。
+   * 加入头(`Header`): 对于每个HTTP请求和响应，都会发送http响应头，可以发送的信息(http://blog.csdn.net/u010412301/article/details/65067176)
 ```
 var http = require('http');
 http.createServer(function (req, res) {
-    res.end('hello world');
+	res.writeHead(200, {
+    	'Content-Type': 'text/plain'		
+	})
+    res.end('hello world');
 }).listen(3000, '127.0.0.1')
 ```
+   * 重定向：
+   `
+   res.writeHead(301, {
+    	'Loacation': 'https://github.com/AngellinaZ'		
+   })
+   1.301响应代码： 资源已移到另一个位置
+   2.发送一个位置头
+   `
+
+   
+
 
 #### REPL
  
