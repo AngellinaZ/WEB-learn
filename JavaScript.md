@@ -1,10 +1,10 @@
-### 补充
+#### 补充
 
  * eval(): 把字符串转换为可以执行的js语句
  * var arr = Object.keys(obj): 将对象转换为数组
 
 
-### 1.对象 
+#### 1.对象 
 
  * JS中所有变量都可以当作对象使用，除了null,undefined
  * 用[]访问属性的特殊： 1.动态设置属性 2.属性名不是一个有效的变量名(比如包含空格，JS的关键词)； 推荐点操作符
@@ -17,12 +17,12 @@
  ```
         
 
-### 2.原型 
+#### 2.原型 
 
  * prototype原型模型
 	
 
-### 3.Math对象方法
+#### 3.Math对象方法
 
  * Math.round() 四舍五入
  * Math.random() 0~1之间的随机数
@@ -30,13 +30,13 @@
  * Math.floor() 向下舍入
 	
 	
-### 4.Number对象方法
+#### 4.Number对象方法
 
  * xxx.toString 把数字转换为字符串，使用指定的基数 注意：2.toString() // 报错
  * xxx.toFixed(2)把数字转换为字符串，四舍五入，指定小数点后的位数
 
 
-### 5.String对象方法
+#### 5.String对象方法
 
  * concat(stringX,stringX,...,stringX) 链接字符串
  * replace(regexp/substr,replacement) 替换匹配的值
@@ -46,14 +46,14 @@
  * substring(start,stop) 提取字符 不接受负数
 
 
-### 6. call 和 apply 
+#### 6. call 和 apply 
 
  * 能动态改变this指向, thisObj: this指向, obj: 要调用的对象或者方法
  * call： obj.call(thisObj, arg1, arg2...);
  * aply:  obj.apply(thisObj, [arr1, arr2...]);
  
  
-### 7.变量 (https://juejin.im/post/59c91b106fb9a00a4b0c5f0e)
+#### 7.变量 (https://juejin.im/post/59c91b106fb9a00a4b0c5f0e)
  
  * ECMAScript中, 变量分为`基本类型`和`引用类型`
    * 基本类型： 存储简单的数据段，一般为Number, String, Boolean, undefined, null
@@ -73,13 +73,13 @@ setName(person);
 console.log(person.name); //Neal
 ```
 
-### 8.执行环境及其作用域
+#### 8.执行环境及其作用域
 
  * `执行环境`定义了变量或函数有权访问其他数据, 每个执行环境都有一个与之相关的`变量对象`，环境中定义的所有变量和函数都保存在这个对象中。
  * 当代码在一个环境中执行的时候，会创建变量对象的一个`作用域链`
    * 作用域链的用途，是保证对执行环境有权访问的变量和函数的有序访问。
-   * 作用域链的前端，始终是当前执行的代码所在的环境的变量对象。
-   * 全局执行环境始终是作用域链的最后一个对象。
+   * 作用域链的前端，始终是当前执行的代码所在的环境的变量对象。全局执行环境始终是作用域链的最后一个对象。
+   * 内部环境可以通过作用域链访问外部环境的变量
 ```
 var color = 'red';
 function changeColor() {
@@ -95,9 +95,20 @@ function changeColor() {
 }
 changeColor();//这里只能访问colo
 ```
- 
+![action-scope](https://github.com/AngellinaZ/WEB-learn/blob/master/images/actionScope.png)
 
-### 99.其他
+
+#### 9.延长作用域链
+
+ * try-catch 语句中的catch
+ * width语句
+ 
+#### 10.垃圾收集
+
+ * 标记清除
+ * 主动清除垃圾： xxx = null
+
+#### 99.其他
 
  1. 各浏览器之间的兼容性问题<br>
  2. 移动端和网页端的兼容 -- 响应式<br>
