@@ -28,8 +28,8 @@ http.createServer(function (req, res) {
    `
    res.writeHead(301, {
     	'Loacation': 'https://github.com/AngellinaZ'		
-   })
-   1.301响应代码： 资源已移到另一个位置
+   })</br>
+   1.301响应代码： 资源已移到另一个位置</br>
    2.发送一个位置头
    `
 
@@ -37,34 +37,31 @@ http.createServer(function (req, res) {
 
  * 模板引擎：Jade, 用于生成HTML, 可动态输出数据到HTML中
  * Jade: 
-   * 管道描述符号 |
-   * 注意缩进--空格键
-   * 如何翻译代码： `-`用于告诉随后的代码应当被执行,  `=`告诉解释器要对代码进行演算, 转义, 然后输出
-   * 变量： 
-   ```
-   格式严谨
-   - var name = 'your name'
-   p this is #{name}
-   ```
-   * 循环： 用来对数组和对象进行迭代, 循环通常成为迭代, 意思是对数组或对象进行迭代并不断做相同的事情
-   ```
-   格式严谨
-   - users = ['a', 'b', 'c']
-   - each user in users
-     p= user
-   ```
-   * 条件： 
-   ```
-   格式严谨
-   - isSleep = true
-   - if (isSleep)
-    p go to sleeop
-   - else 
-    p keep awake
-   ```
-   * 内联(inline)JavaScript
-   * 包含(include)：通过`include 关键字`加载想要的模块
-   * Mixin
+   * 管道描述符号 |
+   * 注意缩进--空格键
+   * 如何翻译代码： `-`用于告诉随后的代码应当被执行,  `=`告诉解释器要对代码进行演算, 转义, 然后输出
+   * 变量： 
+```
+- var name = 'your name'
+  p this is #{name}
+```
+   * 循环： 用来对数组和对象进行迭代, 循环通常成为迭代, 意思是对数组或对象进行迭代并不断做相同的事情
+```
+- users = ['a', 'b', 'c']
+- each user in users
+  p= user
+```
+   * 条件： 
+```
+- isSleep = true
+- if (isSleep)
+ p go to sleeop
+- else 
+ p keep awake
+```
+   * 内联(inline)JavaScript
+   * 包含(include)：通过`include 关键字`加载想要的模块
+   * Mixin
 
 
 #### REPL
