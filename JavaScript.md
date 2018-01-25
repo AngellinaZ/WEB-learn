@@ -56,8 +56,8 @@
 #### 7.变量 (https://juejin.im/post/59c91b106fb9a00a4b0c5f0e)
  
  * ECMAScript中, 变量分为`基本类型`和`引用类型`
-   * 基本类型： 存储简单的数据段，一般为Number, String, Boolean, undefined, null
-   * 引用类型： 由多个键值对构成的对象， Object
+   * 基本类型： 存储简单的数据段，一般为Number, String, Boolean, undefined, null
+   * 引用类型： 由多个键值对构成的对象， Object
  * 变量赋值和传参(引用类型)
    * 引用类型传参时，是通过引用(内存地址)
    * 1--内部局部变量obj存的是person的内存地址，通过这个地址可以找到`person对象本身`并对其进行修改
