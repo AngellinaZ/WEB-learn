@@ -8,11 +8,17 @@
  * 单线程类似进入一个while(true)的事件循环，直到没有事件观察者退出，每个异步事件都生成一个事件观察者，如果有事件发生就调用该回调函数.
   
   
-#### 基本过程：
+#### http -- 超文本传输协议
 
- * 引用require载入http模块<br>
+ * 作用：定义了服务器和客户端在通信的时候应该如何发送和接收数据
+ * 请求http模块并赋予一个变量，便于在以后的脚本使用
  * 调用服务器：用 http 模块提供的函数：createServer。函数返回一个对象，对象有一个listen方法，传入数值参数，指定这个 HTTP 服务器监听的端口号。
-
+```
+var http = require('http');
+http.createServer(function (req, res) {
+    res.end('hello world');
+}).listen(3000, '127.0.0.1')
+```
 
 #### REPL
  
