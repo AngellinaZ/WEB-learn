@@ -9,20 +9,20 @@
  * 创建对象
    * 工厂模式: 用函数来封装以特定接口创建对象的细节。
 ```javascript
-	 //能无数次创建相似的对象，不能解决对象识别问题(我不知道你是谁家的)
-	 function createObj (name, type) {
-	    var o = new Object();
-	    o.name = name;
-	    o.type = type;
-	    o.sayName = function () {
-		   console.log(this.name)
-	    }
-	    return o;
-	  }
-	  var cat = createObj('cat', '猫')
-	  var dog = createObj('dog', '狗')
-		//cat.constructor == createObj -- false
-		//cat instanceof createObj -- false
+//能无数次创建相似的对象，不能解决对象识别问题(我不知道你是谁家的)
+function createObj (name, type) {
+  var o = new Object();
+  o.name = name;
+  o.type = type;
+  o.sayName = function () {
+    console.log(this.name)
+  }
+  return o;
+}
+var cat = createObj('cat', '猫')
+var dog = createObj('dog', '狗')
+//cat.constructor == createObj -- false
+//cat instanceof createObj -- false
 ```
    * 构造函数模式：
 	  - 首字母大写 
@@ -31,68 +31,68 @@
 	  - 创建功能一样的函数(bug)
 		
 ```
-	调用new会：
-	· 创建一个新对象
-	· 将构造函数的作用域赋值给新对象（this执行新的对象）
-	· 执行构造函数内的代码 
-	· 返回新对象并赋值给变量
+调用new会：
+· 创建一个新对象
+· 将构造函数的作用域赋值给新对象（this执行新的对象）
+· 执行构造函数内的代码 
+· 返回新对象并赋值给变量
 ```
 ```javascript
-   function CreateObj (name, type) {
-	   this.name = name;
-	   this.type = type;
-	   this.sayName = function () {
-		   console.log(this.name)
-	   }
+function CreateObj (name, type) {
+   this.name = name;
+   this.type = type;
+   this.sayName = function () {
+	   console.log(this.name)
    }
-   var cat = new CreateObj('cat', '猫')
-   var dog = new CreateObj('dog', '狗')
-   //cat.constructor == CreateObj -- true
-   //cat instanceof CreateObj -- true
-   //cat.sayName == dog.sayName -- false 创建了两个功能一样的函数!!(bug)
+}
+var cat = new CreateObj('cat', '猫')
+var dog = new CreateObj('dog', '狗')
+//cat.constructor == CreateObj -- true
+//cat instanceof CreateObj -- true
+//cat.sayName == dog.sayName -- false 创建了两个功能一样的函数!!(bug)
 ```
    * 原型模式：在创建每一个函数的时候都有一个prototype(原型)属性，这个属性是一个指针，指向一个对象，用于包含由特定类型的所有实例共享的属性和方法。
 ```
-	 0.先在对象实例上找，找不到，在去原型上找
-	 1.让所有对象实例共享他的属性和方法 -- 引用类型的属性容易修改共享的值(bug)
-	 2.原型中的对象属性可以被实例所覆盖重写
-	 3.通过delete可以删除实例中的属性，但是删除不了对象上的
+ 0.先在对象实例上找，找不到，在去原型上找
+ 1.让所有对象实例共享他的属性和方法 -- 引用类型的属性容易修改共享的值(bug)
+ 2.原型中的对象属性可以被实例所覆盖重写
+ 3.通过delete可以删除实例中的属性，但是删除不了对象上的
 ```
 ```javascript
-   function CreateObj (name, type) {
-     CreateObj.prototype.name = name;
-     CreateObj.prototype.type = type;
-     CreateObj.prototype.sayName = function () {
-       console.log(this.name)
-     }
-	 }
-   var cat = new CreateObj('cat', '猫')
-   var dog = new CreateObj('dog', '狗')
-   //cat.sayName == dog.sayName -- true
+function CreateObj (name, type) {
+  CreateObj.prototype.name = name;
+  CreateObj.prototype.type = type;
+  CreateObj.prototype.sayName = function () {
+    console.log(this.name)
+  }
+}
+var cat = new CreateObj('cat', '猫')
+var dog = new CreateObj('dog', '狗')
+//cat.sayName == dog.sayName -- true
 
-   //简写：
-   function Person(){}
-   Person.prototype = {
-	   constructor:Person, //因为每创建一个函数，就会自动创建他的prototype对象，这个对象会自动获取contractor属性。???? 
-	   name:"Neal",
-	   age:24,
-	   job:'Software Engineer',
-	   sayName:function(){
-		   alert(this.name);	
-	   }
+//简写：
+function Person(){}
+Person.prototype = {
+   constructor:Person, //因为每创建一个函数，就会自动创建他的prototype对象，这个对象会自动获取contractor属性。???? 
+   name:"Neal",
+   age:24,
+   job:'Software Engineer',
+   sayName:function(){
+     alert(this.name);	
    }
+}
 ```
    * 组合使用构造函数和原型模式：构造函数模式用于定义实力属性，原型模式用于定义方法和共享的属性。
 ```javascript
-	 function Person(name,age){
-     this.name = name,
-     this.age = age,
-     if(typeof this.sayName != 'function'){
-        Person.prototype.sayName = function(){
-            console.log(this.name)
-        }
-     }
-   }
+function Person(name,age){
+  this.name = name,
+  this.age = age,
+  if(typeof this.sayName != 'function'){
+    Person.prototype.sayName = function(){
+      console.log(this.name)
+    }
+  }
+}
 ```
   * 继承[Neal_yang](https://juejin.im/post/59eff2ad6fb9a045211de7af)
 > [摘录](https://www.ibm.com/developerworks/cn/web/1304_zengyz_jsoo/) 
@@ -104,81 +104,80 @@
 
    * 原型链：利用原型让一个引用类型继承另一个引用类型的属性和方法
 ```javascript
-   function SuperType(){
-     this.property = true;
-	 }
+function SuperType(){
+  this.property = true;
+}
 
-   SuperType.prototype.getSuperValue = function(){
-     return this.property;
-   }
+SuperType.prototype.getSuperValue = function(){
+  return this.property;
+}
 
-   function SubType (){
-     this.subproperty = false;
-   }
-   //替换SubType的原型为SuperType的实例(新原型具有所谓一个SuperType的实例所拥有的全部属性和方法，而且其内部还有一个指针，指向SuperType的原型)
-   SubType.prototype = new SuperType(); 
+function SubType (){
+  this.subproperty = false;
+}
+//替换SubType的原型为SuperType的实例(新原型具有所谓一个SuperType的实例所拥有的全部属性和方法，而且其内部还有一个指针，指向SuperType的原型)
+SubType.prototype = new SuperType(); 
 
-   SubType.prototype.getSubValue = function(){
-     return this.subproperty;
-   }
+SubType.prototype.getSubValue = function(){
+  return this.subproperty;
+}
 
-   var instance = new SubType();
-	 //instance指向subtype的原型，subtype的原型又指向SuperType的原型。
+var instance = new SubType();
+//instance指向subtype的原型，subtype的原型又指向SuperType的原型。
 ```
    * 借用构造函数(call apply): 如果都是使用构造函数，那么，也就避免不了方法都在构造函数中定义，然后就会产生大量重复的代码了。
 ```javascript
-	  function SuperType(name){
-				this.colors = ['red','yellow'];
-				this.name = name;
-		}
+function SuperType(name){
+  this.colors = ['red','yellow'];
+  this.name = name;
+}
 
-		function SubType(name){
-				//继承了Super
-				SuperType.call(this,name)
-		}
+function SubType(name){
+//继承了Super
+  SuperType.call(this,name)
+}
 
-		var instance1 = new SubType('Neal');
-		alert(instance1.name)
-		instance1.colors.push('black');
-		alert(instance1.colors);//'red','yellow','black'
+var instance1 = new SubType('Neal');
+alert(instance1.name)
+instance1.colors.push('black');
+alert(instance1.colors);//'red','yellow','black'
 
-		var instance2 = new SubType('yang');
-		alert(instance2.colors);//'red','yellow'
+var instance2 = new SubType('yang');
+alert(instance2.colors);//'red','yellow'
 ```
    * 组合继承: 原型链 + 构造函数
 ```javascript
-		function SuperType(name){
-				this.name = name;
-				this.colors = ['red','yellow'];
-		}
+function SuperType(name){
+  this.name = name;
+  this.colors = ['red','yellow'];
+}
 
-		SuperType.prototype.sayName = function(){
-				alert(this.name);
-		}
+SuperType.prototype.sayName = function(){
+  alert(this.name);
+}
 
-		function SubType(name,age){
-				//继承属性
-				SuperType.call(this,name);
+function SubType(name,age){
+  //继承属性
+  SuperType.call(this,name);
+  this.age = age;
+}
 
-				this.age = age;
-		}
+//继承方法
+SubType.prototype = new SuperType();
+SubType.prototype.constructor = SubType;
+SubType.prototype.sayAge = function(){
+  alert(this.age);
+}
 
-		//继承方法
-		SubType.prototype = new SuperType();
-		SubType.prototype.constructor = SubType;
-		SubType.prototype.sayAge = function(){
-				alert(this.age);
-		}
+var instance1 = new SubType('Nealyang',24);
+instance1.colors.push('white');
+instance1.sayName();//Nealyang
+instance1.sayAge();// 24
 
-		var instance1 = new SubType('Nealyang',24);
-		instance1.colors.push('white');
-		instance1.sayName();//Nealyang
-		instance1.sayAge();// 24
-		
-		var instance2 = new SubType('Neal',21);
-		alert(instance2.colors);//'red','yellow'
-		instance2.sayName();//Neal
-		instance2.sayAge();//21
+var instance2 = new SubType('Neal',21);
+alert(instance2.colors);//'red','yellow'
+instance2.sayName();//Neal
+instance2.sayAge();//21
 ```
 	
 ****
