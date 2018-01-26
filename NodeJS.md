@@ -6,8 +6,8 @@
  * 每个api都是异步的，并作为一个独立线程运行，使用异步函数调用，并处理并发
  * 基本上所有的事件机制都是用设计模式中 观察者模式 实现。
  * 单线程类似进入一个while(true)的事件循环，直到没有事件观察者退出，每个异步事件都生成一个事件观察者，如果有事件发生就调用该回调函数.
-  
-  
+
+****  
 #### http -- 超文本传输协议
 
  * 作用：定义了服务器和客户端在通信的时候应该如何发送和接收数据
@@ -33,6 +33,7 @@ http.createServer(function (req, res) {
    2.发送一个位置头
    `
 
+**** 
 #### express
 
  * 模板引擎：Jade, 用于生成HTML, 可动态输出数据到HTML中
@@ -63,25 +64,25 @@ http.createServer(function (req, res) {
    * 包含(include)：通过`include 关键字`加载想要的模块
    * Mixin
 
-
+**** 
 #### REPL
  
  * (Read Eval Print Loop)--交互式解释器
  * 可以在终端输入命令，并接收系统的响应 --- 交代各种终端使用快捷键
 
-
+**** 
 #### 回调函数
 
  * 异步编程依托回调来实现，但不能说使用了回调后程序就异步化了。执行代码时就没有阻塞或等待文件 I/O 操作
 
-
+**** 
 #### 事件循环 
 
  * 事件驱动模型(类似观察者模式)
  * 当web server接到请求，关闭请求然后进行处理，然后去服务下一个请求，当请求完成后，将它放到处理队列，当到达队列开头，把结果返回给用户
  * 在事件驱动模型中，会生成一个主循环来监听事件，当检测到事件时触发回调函数。
    
-
+**** 
 #### Node 应用程序是如何工作的？
 
  * 执行异步操作的函数，将回调函数作为最后一个参数，回调函数接收错误对象作为第一个参数
@@ -96,6 +97,7 @@ http.createServer(function (req, res) {
   });
  ```
  
+ **** 
  #### Node.js EventEmitter -- 1.11 (http://www.runoob.com/nodejs/nodejs-event.html)
   * events 模块只提供了一个对象： events.EventEmitter。
   * EventEmitter 的核心就是事件触发与事件监听器功能的封装。
@@ -131,6 +133,7 @@ http.createServer(function (req, res) {
   emitter.emit('error');
 ```
 
+**** 
 #### Node.js Buffer(缓冲区) -- 1.17
  
  * 定义一个Buffer类，创建一个用于存放二进制数据的缓存区
@@ -188,7 +191,7 @@ http.createServer(function (req, res) {
   
  * 缓冲区长度： buf.length
  
- 
+ **** 
  #### Stream (流) -- 1.18
  
  * Stream 是一个抽象接口
@@ -259,7 +262,8 @@ fs.createReadStream('input.txt.gz')
   .pipe(zlib.createGunzip())
   .pipe(fs.createWriteStream('input1.txt'));
 ```
-  
+
+****  
 #### 模块系统
 
  * 为了让Node.js的文件可以相互调用
@@ -279,7 +283,7 @@ exports.hello = function () {}
  
 ![node-http](https://github.com/AngellinaZ/WEB-learn/blob/master/images/nodejs-require.jpg)
 
-
+**** 
 #### 全局对象
 
  * 全局对象：global, 全局变量： global对象的属性
@@ -293,7 +297,7 @@ exports.hello = function () {}
  * console 
  * process: 全局变量
  
- 
+****  
 #### 常用工具 -- 1.21
 
  * util: node.js核心模块，提供常用函数的合集
@@ -307,6 +311,7 @@ exports.hello = function () {}
 var util = require('util'); 
 ```
 
+****  
 #### 文件系统 -- 1.21
 
  * Node 导入文件系统模块(fs)语法
