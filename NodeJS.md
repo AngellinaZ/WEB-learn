@@ -15,7 +15,7 @@
    * 请求http模块并赋予一个变量，便于在以后的脚本使用
    * 调用服务器：用 http 模块提供的函数：createServer。函数返回一个对象，对象有一个listen方法，传入数值参数，指定这个 HTTP 服务器监听的端口号。
    * 加入头(`Header`): 对于每个HTTP请求和响应，都会发送http响应头，可以发送的信息(http://blog.csdn.net/u010412301/article/details/65067176)
-```
+```javascript
 var http = require('http');
 http.createServer(function (req, res) {
 	res.writeHead(200, {
@@ -85,7 +85,7 @@ http.createServer(function (req, res) {
 #### Node 应用程序是如何工作的？
 
  * 执行异步操作的函数，将回调函数作为最后一个参数，回调函数接收错误对象作为第一个参数
- ```
+ ```javascript
   var fs = require("fs");
   fs.readFile('input.txt', function (err, data) {
      if (err){
@@ -100,14 +100,14 @@ http.createServer(function (req, res) {
   * events 模块只提供了一个对象： events.EventEmitter。
   * EventEmitter 的核心就是事件触发与事件监听器功能的封装。
   * EventEmitter的事件组成('事件名', callback/监听事件)
- ```
+ ```javascript
    var events = require('events');
    var eventEmitter = new events.EventEmitter();
 
    //监听器1
    var listener1 = function listener1() {
      console.log('监听器 listener1 执行。');
-  }
+   }
 
    //绑定 connection 事件，处理函数为 listener1/回调函数
    eventEmitter.on('connection', listener1);
@@ -125,7 +125,7 @@ http.createServer(function (req, res) {
    eventListeners = require('events').EventEmitter.listenerCount(eventEmitter,'connection');
  ```
  * error 事件: 为会触发 error 事件的对象设置监听器，避免遇到错误后整个程序崩溃
-```
+```javascript
   var events = require('events'); 
   var emitter = new events.EventEmitter(); 
   emitter.emit('error');
@@ -141,7 +141,7 @@ http.createServer(function (req, res) {
   
  * 写入缓存区： buf.write(string[, offset[, length]][, encoding])
     * 返回值： 返回实际写入的大小。如果 buffer 空间不足， 则只会写入部分字符串。
-```
+```javascript
   buf = Buffer.alloc(256);
   len = buf.write("www.runoob.com");
   console.log("写入字节数 : "+  len);
@@ -149,7 +149,7 @@ http.createServer(function (req, res) {
    
  * 从缓冲区读取数据： buf.toString([encoding[, start[, end]]])， 默认为 'utf8' 。
     * 返回值： 解码缓冲区数据并使用指定的编码返回字符串。
-```
+```javascript
   buf = Buffer.alloc(26);
   for (var i = 0 ; i < 26 ; i++) {
     buf[i] = i + 97;
@@ -159,7 +159,7 @@ http.createServer(function (req, res) {
 ```
   
  * 将 Buffer 转换为 JSON 对象: buf.toJSON()
-```
+```javascript
   var buf = Buffer.from('www.runoob.com');
   var json = buf.toJSON(buf);
   //返回 { type: 'Buffer',data: [ 119, 119, 119, 46, 114, 117, 110, 111, 111, 98, 46, 99, 111, 109 ] }
@@ -173,7 +173,7 @@ http.createServer(function (req, res) {
     * 返回值： 返回一个数字，表示 buf 在 otherBuffer 之前(<0)，之后(>0)或相同(=== 0)。
   
  * 拷贝缓冲区: buf.copy(targetBuffer[, targetStart[, sourceStart[, sourceEnd]]])
-```
+```javascript
   var buf1 = Buffer.from('abcdefghijkl');
   var buf2 = Buffer.from('RUNOOB');
 
@@ -197,7 +197,7 @@ http.createServer(function (req, res) {
     * end -- 没有更多数据可读时触发
     * error -- 在接收和写入过程中发生错误时触发
     * finish -- 所有数据已被写入到底层系统时触发
-```
+```javascript
 var fs = require('fs');
 var data = 'I am zyp';
 
@@ -267,7 +267,7 @@ fs.createReadStream('input.txt.gz')
  * node.js提供两个对象
    * exports: 模块公开的接口
    * require: 用于从外部获取一个模块的接口，即所获取模块的 exports 对象
-```
+```javascript
 //把一个对象封装到模块中
 module.exports = hello; 
 function hello(){}
@@ -303,14 +303,14 @@ exports.hello = function () {}
    * util.isRegExp(object): 如果给定的参数 "object" 是一个正则表达式返回true，否则返回false。
    * util.isDate(object)
    * util.isError(object)
-```
+```javascript
 var util = require('util'); 
 ```
 
 #### 文件系统 -- 1.21
 
  * Node 导入文件系统模块(fs)语法
-```
+```javascript
 var fs = require("fs")
 ```
  * 异步:  方法函数最后一个参数为回调函数, 回调函数的第一个参数包含了错误信息(error). eg：fs.readFile()
