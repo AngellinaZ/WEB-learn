@@ -94,7 +94,7 @@ function Person(name,age){
   }
 }
 ```
-  * 继承[Neal_yang](https://juejin.im/post/59eff2ad6fb9a045211de7af)
+  * 继承[Neal_yang](https://juejin.im/post/59eff2ad6fb9a045211de7af)
 > [摘录](https://www.ibm.com/developerworks/cn/web/1304_zengyz_jsoo/) 
   为了说明javascript是一门面向对象的语言，首先有必要从面相对象的概念入手
 	1. 一切事物皆对象。
