@@ -2,33 +2,33 @@
 
 	
 ****
-## 
- * eval(): 把字符串转换为可以执行的js语句
- * var arr = Object.keys(obj): 将对象转换为数组
+## 其他
+ 1. eval(): 把字符串转换为可以执行的js语句
+ 2. var arr = Object.keys(obj): 将对象转换为数组
 
 ****
 ## Math对象方法
 
- * Math.round() 四舍五入
- * Math.random() 0~1之间的随机数
- * Math.ceil() 向上舍入
- * Math.floor() 向下舍入
+ 1. Math.round() 四舍五入
+ 2. Math.random() 0~1之间的随机数
+ 3. Math.ceil() 向上舍入
+ 4. Math.floor() 向下舍入
 	
 ****	
 ## Number对象方法
 
- * xxx.toString 把数字转换为字符串，使用指定的基数 注意：2.toString() // 报错
- * xxx.toFixed(2)把数字转换为字符串，四舍五入，指定小数点后的位数
+ 1. xxx.toString 把数字转换为字符串，使用指定的基数 注意：2.toString() // 报错
+ 2. xxx.toFixed(2)把数字转换为字符串，四舍五入，指定小数点后的位数
 
 ****
 ## String对象方法
 
- * concat(stringX,stringX,...,stringX) 链接字符串
- * replace(regexp/substr,replacement) 替换匹配的值
- * slice(start,end) 提取字符串的片段
- * split() 把字符串分隔为字符串数组
- * join() 把数组转为字符串
- * substring(start,stop) 提取字符 不接受负数
+ 1. concat(stringX,stringX,...,stringX) 链接字符串
+ 2. replace(regexp/substr,replacement) 替换匹配的值
+ 3. slice(start,end) 提取字符串的片段
+ 4. split() 把字符串分隔为字符串数组
+ 5. join() 把数组转为字符串
+ 6. substring(start,stop) 提取字符 不接受负数
 
 ****
 ## 事件处理程序
@@ -57,7 +57,8 @@ btn.onclick = function () { alert(this.id) }
   > 最后的布尔值参数如果为ture,表示在捕获阶段处理程序，如果为false，表示在冒泡阶段调用事件处理程序。
 ```javascript
 var btn=document.getElementById("myBtn");
-btn.addEventListner("onclick",function(){alert("hello world");false}); //这里添加的事件处理程序也是依附于元素的的作用域
+btn.addEventListner("onclick",function(){alert("hello world");false}); 
+//这里添加的事件处理程序也是依附于元素的的作用域
 ```
 > 优点
   1. 可以为同一个元素添加多个事件处理程序。
