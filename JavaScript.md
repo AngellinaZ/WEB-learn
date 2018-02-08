@@ -66,7 +66,7 @@ btn.addEventListner("onclick",function(){alert("hello world");false});
   3. 通过addEventListner添加的匿名函数无法删除。
 
 ### IE事件处理程序
-  * attachEvent('onclick', fun)
+  * attachEvent('onclick', fun)
   * detachEvent('onclick', fun)
 ```javascript
 var btn=document.getElementById("myBtn");
