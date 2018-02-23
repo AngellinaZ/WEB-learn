@@ -1,7 +1,8 @@
-# WEB-learn :runner:
+# DO SOMETHING FOR WEB :runner:
 
 ## 目录
-  
+[前端面试题集锦](https://fe.padding.me/#/)
+[前端面试题自整合]
 
 ## 待学习
  * eval(): 把字符串转换为可以执行的js语句
@@ -15,5 +16,4 @@
  * 各浏览器之间的兼容性问题
  * 移动端和网页端的兼容 -- 响应式
 
-## 面试合集
-* [前端面试题集锦](https://fe.padding.me/#/)
+
