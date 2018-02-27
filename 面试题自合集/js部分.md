@@ -2,7 +2,7 @@
 
 #### JavaScript数据类型
 基本数据类型： Number String Boolean undefined null 
-复杂数据类型： Object
+复杂数据类型： Object Array
 
 #### JavaScript闭包(https://github.com/mqyqingfeng/Blog/issues/9)
 
@@ -64,3 +64,20 @@ otherWindow.postMessage(message,targetOrigin);
 
 #### vue原理
 
+
+#### 常见题目
+```js
+var a = 10;
+foo = {
+	a: 20,
+	bar: function () {
+		var a = 30;
+		return this.a;
+	}
+}
+console.log(this.a) //10
+console.log(foo.a) //20
+console.log(foo.bar()) //20
+console.log((foo.bar = foo.bar)()) //10
+console.log((foo.bar, foo.bar)())  //10
+```
