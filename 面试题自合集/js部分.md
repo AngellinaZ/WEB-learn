@@ -1,10 +1,13 @@
 ### JavaScript数据类型
 1. 基本数据类型： Number, String, Boolean, undefined, null 
-2. 复杂数据类型： Object, Array
+2. 复杂数据类型： Object，Array，Function，RegExp，Date，Error
+3. 全局数据类型： Math
 
-### JavaScript闭包(https://github.com/mqyqingfeng/Blog/issues/9)
 
-### 前端跨域(https://juejin.im/post/5a2f92c65188253e2470f16d)
+### JavaScript闭包 [参考](https://github.com/mqyqingfeng/Blog/issues/9)
+
+
+### 前端跨域 [参考](https://juejin.im/post/5a2f92c65188253e2470f16d)
 > 什么是跨域？
 
 跨域，指浏览器不能执行其他网站的脚本，是对js的安全限制，由浏览器的同源策略造成，所谓同源是指：域名，协议，端口均相同
@@ -125,13 +128,26 @@ Object.prototype.toString.call(f) === ‘[object Function]’);  // true;
 
 
 
-### js事件执行机制: 
-	event loop，microtask，task queue。然后事件委托、捕获、冒泡、目标阶段,target和currentTarget
+### js事件执行机制: [3.1](http://blog.csdn.net/qq_31628337/article/details/71056294)
+event loop，microtask，task queue。
+事件委托、捕获、冒泡、目标阶段,target和currentTarget
 
-### ajax请求方式
-因该算是考察基础功吧，谈了下XMLHTTPRequest的过程，readyState的几种类型和代表的意思。以及浏览器兼容性的处理方案。
+### ajax 请求方式
+以及浏览器兼容性的处理方案。
+1. ajax 技术核心 XMLHTTPRequest对象
+
+readyState：自身状态
+  * 0： 表示xhr对象创建成功
+  * 1： 表示调用open函数成功
+  * 2： 对方接收完头信息
+  * 3： 对方接受完主体信
+  * 4： 成功断开连接
 
 
+### 异步 同步
+异步： 彼此独立，不需要等待上一个程序返回结果后在执行下一个，例如线程
+
+同步： 顺序执行;下一个程序的执行要等上一个程序执行完成后才能执行，也就是得出结果后下一个才执行
 
 
 ### this指向的问题
