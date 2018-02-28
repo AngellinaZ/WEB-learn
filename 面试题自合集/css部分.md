@@ -1,6 +1,5 @@
-﻿## css
- 
-#### 文本溢出
+
+### 文本溢出
 1. 单行文本溢出显示 
 ```css
   overflow: hidden;
@@ -17,7 +16,7 @@
   overflow: hidden;
 ```
 
-#### 让图文不可复制
+### 让图文不可复制
 ```css
   user-select: none;
   -webkit-user-select: none;
@@ -30,7 +29,7 @@
 1. 监听copy事件，并阻止这个事件的默认行为
 2. 获取选中的内容window.getSelection(), 加上版权信息, 然后设置到剪切clipboarddata.setData()
  
-#### css常用布局
+### css常用布局
 1. 标准盒模型 和 IE怪异盒模型: width是否包含padding和border值 
   ```
   解决方法：设置属性 box-sizing: content-box || border-box(怪异模式) || inherit;
@@ -72,7 +71,7 @@ position：absolute / relative / fixed / static
 </div>
 ```
 
-#### 盒子垂直水平居中
+### 盒子垂直水平居中
 1. 盒子宽高已知：
 ```css
 	height: 50px;
@@ -109,7 +108,7 @@ position：absolute / relative / fixed / static
 ```
 
 
-#### 改变placeholder的字体颜色大小
+### 改变placeholder的字体颜色大小
 仅用于PC端
 ```css
 input::-webkit-input-placeholder {  
@@ -129,7 +128,7 @@ input:-ms-input-placeholder {
 }
 ```
 
-#### BFC (块级格式化上下文) 
+### BFC (块级格式化上下文) 
 触发条件： 
 1. float 的值不为 none
 2. overflow: auto / scroll / hidden
@@ -137,7 +136,7 @@ input:-ms-input-placeholder {
 4. position 的值不为 relative 和 static
 
 
-#### cookies, session, sessionStorage, localStorage
+### cookies, session, sessionStorage, localStorage
 1. Cookies是保存在客户端的小段文本(4kb)，随客户端请求发送该url下的所有cookies到服务器端，在浏览器和服务器间来回传递。同源共享。有效期为expire之前。
 ```
 cookie属性: 
@@ -155,7 +154,7 @@ cookie属性:
 4. localStorage（本地存储）始终有效，窗口或浏览器关闭也一直保存，因此用作持久数据，并可用于所有同源（相同的域名、协议和端口）窗口（或标签页）。
   
 
-#### 前端安全问题: [建议参考](https://www.jianshu.com/p/e6b7b097896e)
+### 前端安全问题: [建议参考](https://www.jianshu.com/p/e6b7b097896e)
 1. XSS: 跨站脚本攻击（Cross-Site Scripting）
 2. 警惕iFrame带来的风险
 3. 别被点击劫持了
@@ -166,7 +165,7 @@ cookie属性:
 8. 缺失静态资源完整性校验
 
 
-####  animation 与 transition
+###  animation 与 transition
 ```css
 animation：mymove 5s infinite; 
 @keyframes mymove
@@ -183,6 +182,6 @@ transition:width 2s;
 浏览器怎么优化的动画
 
 
-#### 浏览器查抄的过程。
+### 浏览器查抄的过程。
 
 
