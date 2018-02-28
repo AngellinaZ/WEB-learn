@@ -1,10 +1,10 @@
-#### JavaScript数据类型
+### JavaScript数据类型
 1. 基本数据类型： Number, String, Boolean, undefined, null 
 2. 复杂数据类型： Object, Array
 
-#### JavaScript闭包(https://github.com/mqyqingfeng/Blog/issues/9)
+### JavaScript闭包(https://github.com/mqyqingfeng/Blog/issues/9)
 
-#### 前端跨域(https://juejin.im/post/5a2f92c65188253e2470f16d)
+### 前端跨域(https://juejin.im/post/5a2f92c65188253e2470f16d)
 > 什么是跨域？
 
 跨域，指浏览器不能执行其他网站的脚本，是对js的安全限制，由浏览器的同源策略造成，所谓同源是指：域名，协议，端口均相同
@@ -48,25 +48,8 @@ otherWindow.postMessage(message,targetOrigin);
 
 7. nodejs中间件代理跨域
 
-#### JavaScript继承 
-从原型继承、构造函数继承、组合继承、寄生组合继承优缺点和实现方式都说
 
-#### JavaScript的节流和防抖
-
-#### js事件执行机制: 
-	event loop，microtask，task queue。然后事件委托、捕获、冒泡、目标阶段,target和currentTarget
-
-#### ajax请求方式
-因该算是考察基础功吧，谈了下XMLHTTPRequest的过程，readyState的几种类型和代表的意思。以及浏览器兼容性的处理方案。
-
-#### js判断数据类型的方法:
-1. typeof、
-2. instanceof、
-3. constructor、
-4. prototyp
-注意事项以及优缺点
-
-#### 函数声明和变量声明 
+### 函数声明和变量声明 
 函数声明的提升优先级大于变量声明的提升
 ```js
 foo();    //1
@@ -82,23 +65,76 @@ foo=function(){
 function foo() {
     console.log(1);
 }
-var foo;
+var foo; //如果变量名称跟已经声明的形式参数或函数相同，则变量声明不会干扰已经存在的这类属性（为了防止同名的函数被修改为undefined，则会直接跳过，原属性值不会被修改。）
 foo();
 foo = function () {
     console.log(2)
 }
 ```
 
-#### this指向的问题
+### js判断数据类型的方法 [参考](https://www.cnblogs.com/dushao/p/5999563.html)
+1. typeof
+> 注意：typeof 返回的类型都是字符串形式(小写), 可以判断 function 类型, 不推荐用于判断Object类型
+```js
+typeof "iamstring.";  //"string"
+typeof 22;            //"number"
 
-#### 面向对象的理解 从封装、继承和多态上说了下es5和es6的实现方式
+typeof [1,2,3];       //"object"
+typeof new Date();    //"object"
+typeof null;          //"object"
 
-#### bootstrap 原理： class类名
+typeof function(){alert(111);}; //"function" 
 
-#### vue原理
+typeof a == "string"; //true
+typeof a == String;   // false
+```
+
+2. instanceof：判断已知对象类型的方法
+> 注意：instanceof 后面一定要是对象类型，并且大小写不能错，该方法适合一些条件选择或分支。
+```js
+var c = [1, 3, 4];
+var d = new Date();
+var f = function(){alert(111);};
+
+c instanceof Array; // true
+d instanceof Date;  // true
+f instanceof Function; // true
+f instanceof function; // false
+```
+
+3. constructor
+> 注意： constructor 在类继承时会出错
+
+4. prototyp
+> 注意： 大小写不能写错，比较麻烦，但胜在通用。
+```js
+var a = "iamstring.";
+var b = 222;
+var c= [1,2,3];
+var d = new Date();
+var e = function(){alert(111);};
+var f = function(){this.name="22";};
+
+Object.prototype.toString.call(a) === ‘[object String]’;     //true;
+Object.prototype.toString.call(b) === ‘[object Number]’);    // true;
+Object.prototype.toString.call(c) === ‘[object Array]’);     // true;
+Object.prototype.toString.call(d) === ‘[object Date]’);      // true;
+Object.prototype.toString.call(e) === ‘[object Function]’);  // true;
+Object.prototype.toString.call(f) === ‘[object Function]’);  // true;
+ ```
 
 
-#### 常见题目
+
+### js事件执行机制: 
+	event loop，microtask，task queue。然后事件委托、捕获、冒泡、目标阶段,target和currentTarget
+
+### ajax请求方式
+因该算是考察基础功吧，谈了下XMLHTTPRequest的过程，readyState的几种类型和代表的意思。以及浏览器兼容性的处理方案。
+
+
+
+
+### this指向的问题
 ```js
 var a = 10;
 foo = {
@@ -108,9 +144,32 @@ foo = {
 		return this.a;
 	}
 }
-console.log(this.a) //10
-console.log(foo.a) //20
-console.log(foo.bar()) //20
-console.log((foo.bar = foo.bar)()) //10
-console.log((foo.bar, foo.bar)())  //10
+console.log(this.a); //10
+console.log(foo.a);  //20
+console.log(foo.bar());  //20
+console.log((foo.bar = foo.bar)()); //10
+console.log((foo.bar, foo.bar)());  //10
 ```
+
+### 面向对象的理解 
+从封装、继承和多态上说了下es5和es6的实现方式
+
+### JavaScript继承 
+从原型继承、构造函数继承、组合继承、寄生组合继承优缺点和实现方式都说
+
+### JavaScript的节流和防抖
+
+
+### bootstrap 原理
+栅格布局系统， 通过css3的 @media 查询实现响应式布局 [@media](http://www.runoob.com/cssref/css3-pr-mediaquery.html)
+```css
+@media screen and (min-width: 480px) {  
+    body {  
+        background-color: lightgreen;  
+    }  
+}  
+```
+
+### vue原理
+
+
