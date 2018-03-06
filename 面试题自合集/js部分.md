@@ -1,11 +1,11 @@
-### JavaScript数据类型
+### 数据类型
 1. 基本数据类型： Number, String, Boolean, undefined, null 
 2. 复杂数据类型： Object，Array，Function，RegExp，Date，Error
 3. 全局数据类型： Math
 4. ES6新增数据类型： Symbol
 
 
-### JavaScript闭包 [参考](https://github.com/mqyqingfeng/Blog/issues/9)
+### 闭包 [参考](https://github.com/mqyqingfeng/Blog/issues/9)
 
 
 ### 前端跨域 [参考](https://juejin.im/post/5a2f92c65188253e2470f16d)
@@ -79,6 +79,7 @@ foo = function () {
 ### js判断数据类型的方法 [参考](https://www.cnblogs.com/dushao/p/5999563.html)
 1. typeof
 > 注意：typeof 返回的类型都是字符串形式(小写), 可以判断 function 类型, 不推荐用于判断Object类型
+typeof 返回的数据类型： string, number,boolean,function, undefined, object, 
 ```js
 typeof "iamstring.";  //"string"
 typeof 22;            //"number"
@@ -129,20 +130,44 @@ Object.prototype.toString.call(f) === ‘[object Function]’);  // true;
 
 
 
-### js事件执行机制: [3.1](http://blog.csdn.net/qq_31628337/article/details/71056294)
+### js 事件执行机制: [3.1](http://blog.csdn.net/qq_31628337/article/details/71056294)
 event loop，microtask，task queue。
 事件委托、捕获、冒泡、目标阶段,target和currentTarget
 
-### ajax 请求方式
+### ajax 原理
+>原理：通过 XmlHttpRequest 对象向服务器发异步请求，从服务器获得数据，然后用js来操作DOM而更新页面。
 以及浏览器兼容性的处理方案。
 1. ajax 技术核心 XMLHTTPRequest对象
+```js
+var xhr;
+if (window.XMLHttpRequest) {
+  xhr = new XMLHttpRequest(); // code for IE7+, Firefox, Chrome, Opera, Safari
+} else {
+  xhr = new ActiveXObject("Microsoft.XMLHTTP"); // code for IE6, IE5
+}
+xhr.open(method, url, async); // method: 'GET'/'POST', async: true异步/false同步
+xhr.send(null); //当POST时可设置string
+xhr.onreadystatechange = function(){ //每当 readyState 属性改变时，就会调用该函数。
+	if(xhr.readyState == 4){
+	    if(xhr.status == 200){
+		success(xhr.responseText); //或者 responseXml
+	    } else { // fail
+		fail && fail(xhr.status);
+	    }
+	}
+}
+```
 
 readyState：自身状态
-  * 0： 表示xhr对象创建成功
-  * 1： 表示调用open函数成功
-  * 2： 对方接收完头信息
-  * 3： 对方接受完主体信
-  * 4： 成功断开连接
+  * 0：请求未初始化，即未调用open()
+  * 1： 服务器连接已建立
+  * 2： 请求已接收
+  * 3： 请求处理中
+  * 4： 请求已完成，且响应已就绪, 此时可以通过通过responseXml和responseText获取完整的回应数据
+
+status:
+  * 200: "OK"  
+  * 404: 未找到页面
 
 
 ### 异步 同步
