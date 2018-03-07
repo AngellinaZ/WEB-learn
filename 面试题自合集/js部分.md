@@ -159,7 +159,7 @@ Object.prototype.toString.call(e) === ‘[object Function]’);  // true;
 Object.prototype.toString.call(f) === ‘[object Function]’);  // true;
  ```
 
-### 事件模型
+### 事件模型 [参考](https://www.cnblogs.com/leaf930814/p/6980501.html)
 > js中有两种事件模型：DOM0，DOM2
 > W3C中定义事件的发生经历三个阶段：捕获阶段capturing）、目标阶段（targetin）、冒泡阶段（bubbling）
 
@@ -187,7 +187,7 @@ event loop，microtask，task queue。
 捕获、冒泡、目标阶段,target和currentTarget
 
 
-
+### 浅拷贝、深拷贝
 
 ### ajax 原理
 >原理：通过 XmlHttpRequest 对象向服务器发异步请求，从服务器获得数据，然后用js来操作DOM而更新页面。
