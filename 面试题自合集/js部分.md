@@ -6,6 +6,30 @@
 
 
 ### 闭包 [参考](https://github.com/mqyqingfeng/Blog/issues/9)
+>什么是闭包
+
+闭包是指有权访问另一个函数作用域中变量的函数
+
+例子依然是来自《JavaScript权威指南》
+```js
+var scope = "global scope";
+function checkscope(){
+    var scope = "local scope";
+    function f(){
+        return scope;
+    }
+    return f;
+}
+
+var foo = checkscope();
+foo();
+```
+
+好处：能够实现封装和缓存，避免全局变量的污染；封装对象的私有属性和私有方法缓存函数内部的变量；
+
+坏处：会常驻内存, 增大内存使用量、不正当使用会造成内存溢出的问题
+
+
 
 
 ### 前端跨域 [参考](https://juejin.im/post/5a2f92c65188253e2470f16d)
@@ -76,7 +100,7 @@ foo = function () {
 }
 ```
 
-### js判断数据类型的方法 [参考](https://www.cnblogs.com/dushao/p/5999563.html)
+### 判断数据类型的方法 [参考](https://www.cnblogs.com/dushao/p/5999563.html)
 1. typeof
 > 注意：typeof 返回的类型都是字符串形式(小写), 可以判断 function 类型, 不推荐用于判断Object类型
 typeof 返回的数据类型： string, number,boolean,function, undefined, object, 
@@ -108,7 +132,14 @@ f instanceof function; // false
 ```
 
 3. constructor
+返回对创建此对象的数组函数的引用，就是返回对象相对应的构造函数
+
 > 注意： constructor 在类继承时会出错
+
+```js
+var arr = []; 
+arr.constructor == Array; //true
+```
 
 4. prototyp
 > 注意： 大小写不能写错，比较麻烦，但胜在通用。
@@ -128,11 +159,35 @@ Object.prototype.toString.call(e) === ‘[object Function]’);  // true;
 Object.prototype.toString.call(f) === ‘[object Function]’);  // true;
  ```
 
+### 事件模型
+> js中有两种事件模型：DOM0，DOM2
+> W3C中定义事件的发生经历三个阶段：捕获阶段capturing）、目标阶段（targetin）、冒泡阶段（bubbling）
+
+* 冒泡型事件：当你使用事件冒泡时，子级元素先触发，父级元素后触发, 由内向外
+* 捕获型事件：当你使用事件捕获时，父级元素先触发，子级元素后触发， 由外向内
+* DOM事件流：同时支持两种事件模型：捕获型事件和冒泡型事件
+* 阻止冒泡：在W3c中，使用stopPropagation() 方法；在IE下设置cancelBubble = true
+* 阻止捕获：阻止事件的默认行为，例如click - <a>后的跳转。在W3c中，使用preventDefault() 方法，在IE下设置 window.event.returnValue = false
 
 
-### js 事件执行机制: [3.1](http://blog.csdn.net/qq_31628337/article/details/71056294)
+### 事件代理(Event Delegation) [参考](https://www.cnblogs.com/liugang-vip/p/5616484.html)
+> 什么是事件代理？
+
+事件代理，又称事件委托，JavaScript高级程序设计上讲：事件委托就是利用事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件。“事件代理”即是把原本需要绑定的事件委托给父元素，让父元素担当事件监听的职务。
+
+适合用事件委托的事件：click，mousedown，mouseup，keydown，keyup，keypress
+
+优点：
+  * 可以大量节省内存占用，减少事件注册
+  * 可以实现当新增子对象时无需再次对其绑定
+
+
+### 事件执行机制: [3.1](http://blog.csdn.net/qq_31628337/article/details/71056294)
 event loop，microtask，task queue。
-事件委托、捕获、冒泡、目标阶段,target和currentTarget
+捕获、冒泡、目标阶段,target和currentTarget
+
+
+
 
 ### ajax 原理
 >原理：通过 XmlHttpRequest 对象向服务器发异步请求，从服务器获得数据，然后用js来操作DOM而更新页面。
