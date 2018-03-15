@@ -62,19 +62,15 @@ foo();
         }
     })
 ```
-2. document.domain + iframe 跨域: 要求主域名一致
-
-3. window.name + iframe 跨域 ： 只能都实现 **get** 请求 
-
-4. location.hash + iframe 跨域 ： 只能都实现 **get** 请求 
-
-5. postMessage跨域 ： 由HTML5提供的超炫的API, 支持ie8, chrome, ff
+2. postMessage跨域 ： 由HTML5提供的超炫的API, 支持ie8, chrome, ff
 ```js
 otherWindow.postMessage(message,targetOrigin);
 ```
-6. 跨域资源共享 CORS
+3. 跨域资源共享 CORS
 
-7. nodejs中间件代理跨域
+4. nodejs中间件代理跨域
+
+5. 服务器端设置 http header -- 推荐
 
 
 ### 函数声明和变量声明 
@@ -161,7 +157,7 @@ Object.prototype.toString.call(f) === ‘[object Function]’);  // true;
 
 ### 事件模型 [参考](https://www.cnblogs.com/leaf930814/p/6980501.html)
 > js中有两种事件模型：DOM0，DOM2
-> W3C中定义事件的发生经历三个阶段：捕获阶段capturing）、目标阶段（targetin）、冒泡阶段（bubbling）
+> W3C中定义事件的发生经历三个阶段：捕获capturing）--> 目标（targetin）--> 冒泡（bubbling）
 
 * 冒泡型事件：当你使用事件冒泡时，子级元素先触发，父级元素后触发, 由内向外
 * 捕获型事件：当你使用事件捕获时，父级元素先触发，子级元素后触发， 由外向内
@@ -187,7 +183,17 @@ event loop，microtask，task queue。
 捕获、冒泡、目标阶段,target和currentTarget
 
 
-### 浅拷贝、深拷贝
+### 浅复制、深复制 [知乎](https://www.zhihu.com/question/23031215/answer/46220227)
+
+操作对象：像 Object, Array 这样的复杂对象
+
+> 浅复制
+
+对于字符串类型，浅复制是对值的复制，对于对象来说，浅复制是对对象地址的复制，指向同一个地址，并没有开辟新的栈
+
+> 深复制
+
+深复制则是开辟新的栈，两个对象对应两个不同的地址，修改一个对象的属性，不会改变另一个对象的属性
 
 ### ajax 原理
 >原理：通过 XmlHttpRequest 对象向服务器发异步请求，从服务器获得数据，然后用js来操作DOM而更新页面。
@@ -267,6 +273,26 @@ console.log((foo.bar, foo.bar)());  //10
 }  
 ```
 
-### vue原理
+### vue
+
+1. 兼容性
+
+Vue 不支持 IE8 及以下版本，因为 Vue 使用了 IE8 无法模拟的 ECMAScript 5 特性。但它支持所有[兼容 ECMAScript 5 的浏览器](https://caniuse.com/#feat=es5)。
+
+2. 生命周期钩子
+  
+   生命周期 | 描述
+  ------------- | -------------
+ beforeCreate  | 在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。
+ created  | 在实例创建完成后，属性已绑定。挂载阶段还没开始，DOM还未生成，$el 属性目前不可见。
+ beforeMount | 在挂载开始之前被调用
+ mounted  | 模板编译挂载之后（不保证组件已在doucument中）
+ beforeUpdate  | 组件更新之前
+ updated  | 组件更新之后
+ activated  | keep-alive 组件激活时调用
+ deactivated  | keep-alive 组件停用时调用
+ beforeDestroy  | 实例销毁前调用，在这一步，实例仍然完全可用
+ destroyed  | 实例销毁后调用
+ errorCaptured  | 当捕获一个来自子孙组件的错误时被调用
 
 
