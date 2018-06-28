@@ -2,7 +2,7 @@
 1. 基本数据类型： Number, String, Boolean, undefined, null 
 2. 复杂数据类型： Object，Array，Function，RegExp，Date，Error
 3. 全局数据类型： Math
-4. ES6新增数据类型： Symbol
+4. ES6新增数据类型： Symbol 表示独一无二
 
 
 ### 闭包 [参考](https://github.com/mqyqingfeng/Blog/issues/9)
