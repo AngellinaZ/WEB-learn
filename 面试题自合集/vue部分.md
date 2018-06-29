@@ -1,20 +1,20 @@
-### 兼容
+## 兼容
 
-### 组件封装
+## 组件封装
 
-### 路由拦截
+## 路由拦截
 
-### 生命周期
+## 生命周期
 
-### 路由钩子
+## 路由钩子
 
-### scoped
+## scoped
 
-### 父子组件传值，兄弟组件传值
+## 父子组件传值，兄弟组件传值
 
-### 双向数据绑定原理
+## 双向数据绑定原理
 
-### vuex
+## vuex
 > 状态管理模式，适合大型单页面应用
 
 1. vuex的状态存储是响应式的
@@ -52,7 +52,7 @@ const store = new Vuex.Store({
 })
 ```
 
-#### State
+### State
 > 单一状态树
 通过在根实例中注册 store 选项，该 store 实例会注入到根组件下的所有子组件中，且子组件能通过 this.$store 访问到
 ```js
@@ -69,7 +69,7 @@ computed: mapState([
   'count'
 ])
 ```
-#### Getter
+### Getter
 > store的计算属性，getter 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算。
 ```js
 computed: {
@@ -95,7 +95,7 @@ computed: mapGetters({
   doneCount: 'doneTodosCount'
 })
 ```
-#### Mutation
+### Mutation
 > 更改 Vuex 的 store 中的状态的唯一方法是提交 mutation， mutation必须是同步函数
 ```js
 //mapMutations辅助函数
@@ -114,7 +114,7 @@ methods: {
   })
 }
 ```
-#### Action
+### Action
 > Action 提交的是 mutation，而不是直接变更状态; 可以包含任意异步操作
 ```js
 //Action 通过 store.dispatch 方法触发
@@ -152,8 +152,8 @@ actions: {
 }
 ```
 
-#### 严格模式下的表单处理
-给 <input> 中绑定 value，然后侦听 input 或者 change 事件，在事件回调中调用 action
+### 严格模式下的表单处理
+给 `<input>` 中绑定 value，然后侦听 input 或者 change 事件，在事件回调中调用 action
 ```js
 <input :value="message" @input="updateMessage">
 
