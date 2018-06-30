@@ -69,23 +69,74 @@ eg.speak(); // i can
 3. 不能使用arguments对象
 
 ## ES6 let、const
+const: 定义常量值，不能够重新赋值，如果值是一个对象，可以改变对象里边的属性值
 let: 不是全局变量，具有块级函数作用域,大多数情况不会发生变量提升
 ```js
-var a = []
-for (var i = 0; i < i; i++) {
-    a[i] = function () {
+for (var i = 0; i < 3; i++) {
+    setTimeout(function () {
+        console.log(i)
+    }, 100)
+}
+//3 3 3
+
+//let 
+for (let i = 0; i < 3; i++) {
+    setTimeout(function () {
+        console.log(i)
+    }, 100)
+}
+// 0 1 2 
+
+//闭包
+function showNum(i) {
+    return function () {
         console.log(i)
     }
 }
-a[5]() // 10
+var a = []
+for (var i = 0; i < 3; i++) {
+    a[i] = showNum(i)()
+}
+// 0 1 2 
 
-//let 
-for (let i = 0; i < i)
+//立即执行
+for (let i = 0; i < 3; i++) {
+    setTimeout((function (j) {
+        console.log(j)
+    })(i), 100)
+}
+// 0 1 2 
 ```
 
 ## set数据结构
+Set本身是一个构造函数，它类似于数组，但是成员值都是唯一的
+```js
+//去重
+const set = new Set([1, 2, 3, 4, 4]);
+[...set] //1, 2, 3, 4
+```
+
 ## promise对象的用法,手写一个promise
-## class的理解
+```js
+var promise = new Promise((resolve, reject) => {
+  if (操作成功) {
+      resolve(value)
+  } else {
+      reject(error)
+  }
+})
+promise.then(res => {
+  //成功
+}, error => {
+  //失败
+})
+```
+
 ## 模版语法的理解
+```js
+//字符串拼接
+let name = 'haha';
+`${name} is the number of Running Man`
+```
+
 ## rest参数
-## module体系
