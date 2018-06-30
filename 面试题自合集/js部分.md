@@ -273,26 +273,6 @@ console.log((foo.bar, foo.bar)());  //10
 }  
 ```
 
-### vue
 
-1. 兼容性
-
-Vue 不支持 IE8 及以下版本，因为 Vue 使用了 IE8 无法模拟的 ECMAScript 5 特性。但它支持所有[兼容 ECMAScript 5 的浏览器](https://caniuse.com/#feat=es5)。
-
-2. 生命周期钩子
-  
-   生命周期 | 描述
-  ------------- | -------------
- beforeCreate  | 在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。
- created  | 在实例创建完成后，属性已绑定。挂载阶段还没开始，DOM还未生成，$el 属性目前不可见。
- beforeMount | 在挂载开始之前被调用
- mounted  | 模板编译挂载之后（不保证组件已在doucument中）
- beforeUpdate  | 组件更新之前
- updated  | 组件更新之后
- activated  | keep-alive 组件激活时调用
- deactivated  | keep-alive 组件停用时调用
- beforeDestroy  | 实例销毁前调用，在这一步，实例仍然完全可用
- destroyed  | 实例销毁后调用
- errorCaptured  | 当捕获一个来自子孙组件的错误时被调用
 
 
