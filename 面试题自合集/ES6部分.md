@@ -139,7 +139,14 @@ let name = 'haha';
 `${name} is the number of Running Man`
 ```
 
-## rest参数 和 ...变量
+### 扩展运算符
+> 扩展运算符可以看做是 rest 参数的逆运算，将一个数组转为用逗号分隔的参数序列。
+```js
+console.log(...'22') //2 2
+console.log([...'22']) //[2,2]
+```
+
+## rest参数： ...变量
 > 用于获取函数多余的变量，可不使用arguments对象
 
 rest参数和arguments对象的区别 
