@@ -1,3 +1,31 @@
+## async await 异步
+async函数返回一个promise对象, 通过调用then(), 获取返回值
+```js
+async function eg() {
+  return 'this is an egg';
+}
+console.log(eg()); // Promise {<resolved>: "this is an egg"}
+eg().then(res => {
+  console.log(res); // this is an egg
+})
+
+async getFaceResult () {
+    try {
+        let location = await this.getLocation(this.phoneNum);  //等拿到location后在执行下一步
+        if (location.data.success) {
+            let province = location.data.obj.province;
+            let city = location.data.obj.city;
+            let result = await this.getFaceList(province, city);
+            if (result.data.success) {
+                this.faceList = result.data.obj;
+            }
+        }
+    } catch(err) {
+        console.log(err);
+    }
+}
+```
+
 ## class
 > 定义类, 语法糖
 ES5
