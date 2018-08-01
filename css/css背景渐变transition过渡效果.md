@@ -1,4 +1,4 @@
-[Reference resources](https://www.zhangxinxu.com/wordpress/2018/03/background-gradient-transtion/)
+[Reference resources - 张鑫旭](https://www.zhangxinxu.com/wordpress/2018/03/background-gradient-transtion/)
 
 ## why
 background-image不支持CSS3 transition
