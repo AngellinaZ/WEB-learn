@@ -5,15 +5,15 @@
 [运行展示](https://jsfiddle.net/big_fish/spsudyz8/?utm_source=website&utm_medium=embed&utm_campaign=spsudyz8)
 ****
 
-**1. Math.pow(x, y)**
+**Math.pow(x, y)**
 
 1. 返回 x 的 y 次幂的值
 2. 如果结果是虚数或负数，则该方法将返回 NaN。如果由于指数过大而引起浮点溢出，则该方法将返回 Infinity。
 ****
 
-**2. String repeat()**
+**String repeat()**
 
-返回： 构造并返回一个新字符串，该字符串包含被连接在一起的指定数量的字符串的副本。
+构造并返回一个新字符串，该字符串包含被连接在一起的指定数量的字符串的副本。
 
 ```js
 /** 
@@ -27,7 +27,7 @@ let resultString = str.repeat(count);
 ```
 ****
 
-**3. Array reduce()**
+**Array reduce()**
 
 1. 补充： reduceRight() 从右到左
 2. 接收一个函数作为累加器，数组中的每个值（从左到右）开始缩减，最终计算为一个值
@@ -48,7 +48,7 @@ let result = [65, 44, 12, 4].reduce((total, curr) => total + curr); //125
 ```
 ****
 
-**4. Array map()**
+**Array map()**
 
 1. 处理后的新数组
 2. 不会对空数组进行检测, 不会改变原始数组。
@@ -64,7 +64,7 @@ let result = [65, 44, 12, 4].map(num => num * 6); //[390, 264, 72, 24]
 ```
 ****
 
-**5. Array filter()**
+**Array filter()**
 
 1. 返回数组，包含了符合条件的所有元素。如果没有符合条件的元素则返回空数组。
 
