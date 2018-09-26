@@ -1,7 +1,5 @@
 # DO SOMETHING FOR WEB :runner:
  
- 苔藓吞食巨石，虽然缓慢，却具有破坏性
-
 **面试题自整合:**
   * [css](https://github.com/AngellinaZ/blog/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98%E8%87%AA%E5%90%88%E9%9B%86/css%E9%83%A8%E5%88%86.md)
   * [js](https://github.com/AngellinaZ/blog/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98%E8%87%AA%E5%90%88%E9%9B%86/js%E9%83%A8%E5%88%86.md)
