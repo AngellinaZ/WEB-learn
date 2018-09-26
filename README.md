@@ -1,6 +1,6 @@
 # DO SOMETHING FOR WEB :runner:
  
-##面试题自整合:
+## 面试题自整合:
   * [css](https://github.com/AngellinaZ/blog/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98%E8%87%AA%E5%90%88%E9%9B%86/css%E9%83%A8%E5%88%86.md)
   * [js](https://github.com/AngellinaZ/blog/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98%E8%87%AA%E5%90%88%E9%9B%86/js%E9%83%A8%E5%88%86.md)
   * [ES6/ES7](https://github.com/AngellinaZ/learning-process/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98%E8%87%AA%E5%90%88%E9%9B%86/ES6%E9%83%A8%E5%88%86.md)
@@ -9,7 +9,7 @@
 
 
   
-##JavaScript进阶篇
+## JavaScript进阶篇
 
 建议按顺序阅读
 
@@ -23,7 +23,7 @@
   * [事件处理程序](https://github.com/AngellinaZ/learnWeb/blob/master/articles/JavaScript%E8%BF%9B%E9%98%B6%E7%AF%87/%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F.md)
 
 
-##前端书籍
+## 前端书籍
 * 高级程序设计
   * [第四章《变量，作用域和内存问题》](https://github.com/AngellinaZ/learnWeb/blob/master/books/%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E7%AC%AC%E5%9B%9B%E7%AB%A0%E3%80%8A%E5%8F%98%E9%87%8F%EF%BC%8C%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98%E3%80%8B/%E5%8F%98%E9%87%8F%EF%BC%8C%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98.md)
   * [第五章《引用类型》](https://github.com/AngellinaZ/learnWeb/blob/master/books/%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E7%AC%AC%E4%BA%94%E7%AB%A0%E3%80%8A%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E3%80%8B/%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B.md)
