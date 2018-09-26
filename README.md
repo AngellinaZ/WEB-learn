@@ -11,7 +11,7 @@
 
 
 
-**学习总结篇**
+**JavaScript进阶篇**
   * [学习总结の原型和原型链](https://github.com/AngellinaZ/blog/blob/master/articles/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E3%81%AE%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE.md)
   * [学习总结の执行上下文栈](https://github.com/AngellinaZ/blog/blob/master/articles/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E3%81%AE%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88.md)
   * [学习总结の执行上下文](https://github.com/AngellinaZ/blog/blob/master/articles/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E3%81%AE%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87.md)
@@ -23,3 +23,10 @@
 
 **知识补全篇**
   * [知识补全の事件处理程序](https://github.com/AngellinaZ/blog/blob/master/articles/%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%A8/%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%A8%E3%81%AE%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F.md)
+
+**前端书籍**
+* 高级程序设计
+  * [第四章《变量，作用域和内存问题》]()
+  * [第五章《引用类型》]()
+  * [第六章《面向对象的程序设计》]()
+  * [第七章《函数表达式》]()
