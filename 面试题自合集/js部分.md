@@ -1,11 +1,11 @@
-### 数据类型
+## 数据类型
 1. 基本数据类型： Number, String, Boolean, undefined, null 
 2. 复杂数据类型： Object，Array，Function，RegExp，Date，Error
 3. 全局数据类型： Math
 4. ES6新增数据类型： Symbol 表示独一无二
 
 
-### 闭包 [参考](https://github.com/mqyqingfeng/Blog/issues/9)
+## 闭包 [参考](https://github.com/mqyqingfeng/Blog/issues/9)
 >什么是闭包
 
 闭包是指有权访问另一个函数作用域中变量的函数
@@ -32,7 +32,7 @@ foo();
 
 
 
-### 前端跨域 [参考](https://juejin.im/post/5a2f92c65188253e2470f16d)
+## 前端跨域 [参考](https://juejin.im/post/5a2f92c65188253e2470f16d)
 > 什么是跨域？
 
 跨域，指浏览器不能执行其他网站的脚本，是对js的安全限制，由浏览器的同源策略造成，所谓同源是指：域名，协议，端口均相同
@@ -73,7 +73,7 @@ otherWindow.postMessage(message,targetOrigin);
 5. 服务器端设置 http header -- 推荐
 
 
-### 函数声明和变量声明 
+## 函数声明和变量声明 
 函数声明的提升优先级大于变量声明的提升
 ```js
 foo();    //1
@@ -96,7 +96,7 @@ foo = function () {
 }
 ```
 
-### 判断数据类型的方法 [参考](https://www.cnblogs.com/dushao/p/5999563.html)
+## 判断数据类型的方法 [参考](https://www.cnblogs.com/dushao/p/5999563.html)
 1. typeof
 > 注意：typeof 返回的类型都是字符串形式(小写), 可以判断 function 类型, 不推荐用于判断Object类型
 typeof 返回的数据类型： string, number,boolean,function, undefined, object, 
@@ -155,7 +155,7 @@ Object.prototype.toString.call(e) === ‘[object Function]’);  // true;
 Object.prototype.toString.call(f) === ‘[object Function]’);  // true;
  ```
 
-### 事件模型 [参考](https://www.cnblogs.com/leaf930814/p/6980501.html)
+## 事件模型 [参考](https://www.cnblogs.com/leaf930814/p/6980501.html)
 > js中有两种事件模型：DOM0，DOM2
 > W3C中定义事件的发生经历三个阶段：捕获capturing）--> 目标（targetin）--> 冒泡（bubbling）
 
@@ -166,7 +166,9 @@ Object.prototype.toString.call(f) === ‘[object Function]’);  // true;
 * 阻止捕获：阻止事件的默认行为，例如click - <a>后的跳转。在W3c中，使用preventDefault() 方法，在IE下设置 window.event.returnValue = false
 
 
-### 事件代理(Event Delegation) [参考](https://www.cnblogs.com/liugang-vip/p/5616484.html)
+### 事件代理(Event Delegation) 
+[参考](https://www.cnblogs.com/liugang-vip/p/5616484.html)
+
 > 什么是事件代理？
 
 事件代理，又称事件委托，JavaScript高级程序设计上讲：事件委托就是利用事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件。“事件代理”即是把原本需要绑定的事件委托给父元素，让父元素担当事件监听的职务。
@@ -177,13 +179,52 @@ Object.prototype.toString.call(f) === ‘[object Function]’);  // true;
   * 可以大量节省内存占用，减少事件注册
   * 可以实现当新增子对象时无需再次对其绑定
 
+点击选中的li, 弹窗显示选中li内的数字
+```html
+<ul id="ul-test">
+    <li>0</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+</ul>
+```
 
-### 事件执行机制: [3.1](http://blog.csdn.net/qq_31628337/article/details/71056294)
+不用事件委托： 通过循环所有的li，给每一个li都添加点击事件，emmmm...那岂不是如果有100个li，就会有100个点击事件了吗？！很恐怖啊！
+```js
+var oUl = document.getElementById('ul-test');
+var oli = oUl.getElementsByTagName('li');
+for(var i = 0; i < oli.length; i++) {
+	oli[i].addEventListener("click", function () {
+		alert(this.innerHTML)
+	})
+}
+```
+
+用事件委托： 通过将点击事件绑定到父元素上，就随便你有多少个li了，任性！
+```js
+var oUl = document.getElementById('ul-test');
+oUl.addEventListener('click', function (e) {
+	var e = e || window.event;
+	var target = e.target || e.srcElement;
+	if (target.tagName.toLowerCase() === 'li') {
+		alert(target.innerHTML)
+	}
+})
+```
+
+
+## 事件执行机制: [3.1](http://blog.csdn.net/qq_31628337/article/details/71056294)
 event loop，microtask，task queue。
 捕获、冒泡、目标阶段,target和currentTarget
 
 
-### 浅复制、深复制 [知乎](https://www.zhihu.com/question/23031215/answer/46220227)
+## 浅复制、深复制 [知乎](https://www.zhihu.com/question/23031215/answer/46220227)
 
 操作对象：像 Object, Array 这样的复杂对象
 
@@ -231,13 +272,16 @@ status:
   * 404: 未找到页面
 
 
-### 异步 同步
+## 异步 同步
 异步： 彼此独立，不需要等待上一个程序返回结果后在执行下一个，例如线程
 
 同步： 顺序执行;下一个程序的执行要等上一个程序执行完成后才能执行，也就是得出结果后下一个才执行
 
 
-### this指向的问题
+## this指向的问题
+
+**谁调用我，我就指向谁**
+
 ```js
 var a = 10;
 foo = {
@@ -254,16 +298,16 @@ console.log((foo.bar = foo.bar)()); //10
 console.log((foo.bar, foo.bar)());  //10
 ```
 
-### 面向对象的理解 
+## 面向对象的理解 
 从封装、继承和多态上说了下es5和es6的实现方式
 
-### JavaScript继承 
+## JavaScript继承 
 从原型继承、构造函数继承、组合继承、寄生组合继承优缺点和实现方式都说
 
-### JavaScript的节流和防抖
+## JavaScript的节流和防抖
 
 
-### bootstrap 原理
+## bootstrap 原理
 栅格布局系统， 通过css3的 @media 查询实现响应式布局 [@media](http://www.runoob.com/cssref/css3-pr-mediaquery.html)
 ```css
 @media screen and (min-width: 480px) {  
