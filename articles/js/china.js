@@ -1,3 +1,5 @@
+
+//具体省份
 let geoJson = {
      "type": "FeatureCollection",
      "features": [{
@@ -2993,6 +2995,7 @@ let geoJson = {
      }]
 }
 
+//七大地区
 let geoJsonArea = {
      "type": "FeatureCollection",
      "features": [{
