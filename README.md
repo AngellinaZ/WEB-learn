@@ -29,11 +29,5 @@
   * [第七章《函数表达式》](https://github.com/AngellinaZ/learnWeb/blob/master/books/%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E7%AC%AC%E4%B8%83%E7%AB%A0%E3%80%8A%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E3%80%8B/%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F.md)
 
 
-## question and answer
-
-做过题目，以及题目中涉及到的相关知识
-
-* [输入一个整数(大于0),返回一个拼接的字符串，例如 fun(12045) 得到 '10000 + 2000 + 40 + 5'](https://github.com/AngellinaZ/learnWeb/blob/master/articles/%E9%A2%98%E7%9B%AE/Array%E6%96%B9%E6%B3%95%E9%9B%86%E5%90%88.md)
-* [输入一个数组，找出其中出现奇数次的成员，例如 fun([1,2,2,3,3,5,2,1,5]) 得到 2](https://github.com/AngellinaZ/learnWeb/blob/master/articles/%E9%A2%98%E7%9B%AE/moss0324.md)
+## 排序
 * [快速排序(QuickSort)](https://github.com/AngellinaZ/learnWeb/blob/master/articles/%E9%A2%98%E7%9B%AE/moss_%E6%8E%92%E5%BA%8F.md)
-* [常规函数和箭头函数](https://github.com/AngellinaZ/learnWeb/blob/master/articles/%E9%A2%98%E7%9B%AE/moss0326.md)
