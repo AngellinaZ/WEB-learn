@@ -1,7 +1,7 @@
-[OAuth 2.0 的四种方式](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html)
+[OAuth 2.0 的四种方式](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html)<br>
 [OAuth 2.0 的一个简单解释](http://www.ruanyifeng.com/blog/2019/04/oauth_design.html)
 
-> 解释：目前最流行的授权机制，用来授权第三方应用，获取用户数据。系统从而产生一个短期的进入令牌(token)，用来代替密码，供第三方应用使用
+> 目前最流行的授权机制，用来授权第三方应用，获取用户数据。系统从而产生一个短期的进入令牌(token)，用来代替密码，供第三方应用使用
 
 ### 栗子
 1. 居民小区 -- 存储用户数据的网络服务； eg: 微信存储了我的好友信息，获取这些信息，就必须经过微信的"门禁系统"。
