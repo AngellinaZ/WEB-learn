@@ -31,7 +31,7 @@ OAuth 2.0 的标准是[RFC6749](https://tools.ietf.org/html/rfc6749)。
 
 前后端分离，可以避免令牌泄露。
 
-![c59658d338191d6a1d4d5af69d0a68fd.png](en-resource://database/517:1)
+![1.png](https://github.com/AngellinaZ/learn/blob/master/%E5%AE%89%E5%85%A8/images/1.png)
 
 
 1. A网站提供一个链接，用户点击后就会跳转到B网站，授权用户数据给A网站使用。
@@ -78,7 +78,7 @@ https://b.com/oauth/token?
 
 适用于纯前端应用。
 
-![d9326eb23c3cf4656ac7dc73742c941b.png](en-resource://database/519:1)
+![2.png](https://github.com/AngellinaZ/learn/blob/master/%E5%AE%89%E5%85%A8/images/2.png)
 
 1. A 网站提供一个链接，要求用户跳转到 B 网站，授权用户数据给 A 网站使用。
  ```js
